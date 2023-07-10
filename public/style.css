@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html body {
+    background-color: rgba(45, 93, 207, 0.992);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 350;
+}
+
+.nav-text {
+    font-weight: 600 !important;
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+.btn-bluish {
+    background-color: rgba(45, 93, 207, 0.992) !important;
+}
+
+.st-orange {
+    color: #f1a930;
+}
+
+.add-column {
+    min-width: 25vw;
+    width: 100%;
+}
+
+.st-lightorange {
+    color: #f1a930;
+}
+
+.st-blue {
+    color: #005078;
+}
+
+.st-darkblue {
+    color: #00405f;
+}
+
+.bold {
+    font-weight: 800 !important;
+}
+
+.small-tag {
+    font-size: smaller !important;
+}
+
+.time {
+    font-weight: 800 !important;
+}
+
+.list-group { 
+    min-width: 20vw;
+    width: 100%;
+}
+
+.weight-450 {
+    font-weight: 450 !important;
+}
+
+.weight-500 {
+    font-weight: 500 !important;
+}
+
+.weight-650 {
+    font-weight: 650 !important;
+}
+
+/* Column Component */
+
+.add-nametag {
+    border-radius: 12px;
+    color: rgba(0, 0, 0, 0.434) !important;
+    display: inline-block;
+    font-size: smaller;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+    border: none;
+}
+
+.add-nametag:hover {
+    background-color: rgb(243, 243, 243) !important;
+    opacity: 0.85
+}
+
+.add-nametag-inner {
+    border-radius: 12px;
+    color: rgba(0, 0, 0, 0.434) !important;
+    display: inline-block;
+    font-size: smaller;
+    border: none;
+    background-color: rgb(243, 243, 243) !important;
+}
+
+.column-settings {
+    border-radius: 0.375rem;
+    color: rgba(0, 0, 0, 0.434) !important;
+    display: inline-block;
+    font-size: smaller;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+    border: none;
+}
+
+.column-settings:hover {
+    background-color: rgb(243, 243, 243) !important;
+    opacity: 0.85
+}
+
+.column-settings-inner {
+    border-radius: 0.375rem;
+    color: rgba(0, 0, 0, 0.434) !important;
+    display: inline-block;
+    font-size: smaller;
+    border: none;
+    background-color: rgb(243, 243, 243) !important;
+}
+
+[contenteditable] {
+    -webkit-user-modify: read-write-plaintext-only;
+  }
+  
+
+/* ----------- */
+
+/* Add Column */
+.btn-hover {
+    color: rgba(0, 0, 0, 0.434) !important;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+    border: none;
+}
+
+.btn-hover:hover {
+    opacity: 0.85;
+    background-color: rgb(243, 243, 243) !important;
+}
+/* ----------- */
+
+.editable-content:focus {
+    outline: none;
+}
+
+
+/* Navbar */
+
+.clickable-ratio {
+    height: 2rem !important;
+    width: 2rem !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; 
+}
+
+.action-ratio {
+    height: 2rem !important;
+    width: 4rem !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; 
+}
+
+/* .square-button-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+} */
+
+
+/* 
+ *  Autofill
+ */
+
+ .organizer-nametag {
+    display: flex; align-items: center;
+    border-radius: 12px;
+    background-color: #00094ad2;
+    border: none;
+    color: rgba(2, 7, 40, 0.251);
+    display: inline-block;
+    font-size: 12pt;
+    text-align: left !important;
+    position: relative;
+} 
+
+.autofill-options {
+    font-size: smaller;
+    color: rgb(236, 236, 236) !important;
+    text-align: left !important;
+    opacity: 0.3;
+    /* margin-top: -32.5% !important; */
+    z-index: 3;
+}
+
+.autofill-main {
+    border-radius: 12px;
+    border: none;
+    color: white;
+    display: inline-block;
+    font-size: smaller !important;
+    text-align: left !important;
+    position: relative;
+    /* z-index: 4; */
+}
+
+.autofill-main-printable {
+    border-radius: 12px;
+    border: none;
+    color: black;
+    display: inline-block;
+    text-align: left !important;
+    position: relative;
+    /* z-index: 4; */
+}
+
+
+.form-control-plaintext {
+    display: inline-block !important;
+}
+
+.readonly {
+    pointer-events: none;
+    user-select: none;
+}
+
+/* 
+Weather
+*/
+
+
+.small-image {
+  max-width: 25%;
+  height: auto;
+}
+
+/* COLUMN */
+.title {
+    color: #f3af39;
+    font-weight: 700;
+    font-size: 14pt;
+}
+
+/* PRINTABLE */
+
+hr {
+    height: 0.5vh !important;
+    background-color: #864e40 !important;
+    color: #864e40 !important;
+}
+
+.printable-title {
+    font-size: 14pt;
+    font-weight: 700;
+}
+
+.printable-text {
+    font-family: 'Inter', sans-serif;
+}
+
+.printable-no-border {
+    border: none !important;
+}
+.printable-orange {
+    color: #e6b350;
+}
+
+.printable-dorange {
+    color: #f29780;
+}
+
+.printable-color {
+    color: #4f6572;
+}
+
+.printable-light {
+    font-weight: 400;
+    font-size: 12pt;
+}
+
+.printable-time {
+    font-weight: 600;
+    font-size: 12pt !important;
+}
+
+.no-select {
+    user-select: none !important;
+}
+
+.login-form input {
+    font-size: 12pt !important;
+    font-weight: 600 !important;
+}
+
+.login-form label {
+    font-weight: 700 !important;
+}
