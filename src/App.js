@@ -11,7 +11,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
   // https://event-manager-backend-d7uu.onrender.com
-  const address = 'http://localhost:8080'; // address of backend
+  const address = 'https://event-manager-backend-d7uu.onrender.com'; // address of backend
   const [update, setUpdate] = useState(false); // triggers a refresh of events
   const [saveUpdate, setSaveUpdate] = useState(false); // triggers a save of events
   const [day, setDay] = useState("None"); // sets the current day
