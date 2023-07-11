@@ -13,6 +13,7 @@ const OfflineMode = (props) => {
     
     function auth() {
         root.render(<Login address={props.address} setIsOffline={props.setIsOffline} setAuth={props.setAuth} setUpdate={props.setUpdate}/>);
+        document.body.style.backgroundColor = '#f0f0f0';
     }
 
     useEffect(() => {

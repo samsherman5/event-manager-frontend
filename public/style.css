@@ -297,8 +297,12 @@ hr {
 }
 
 .login-form input {
-    font-size: 10pt !important;
-    font-weight: 300 !important;
+    font-size: 12pt !important;
+    font-weight: 400 !important;
+}
+
+.large-label {
+    font-size: 14pt;
 }
 
 .login-form label {
