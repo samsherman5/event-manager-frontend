@@ -22,9 +22,11 @@ const Weather = (props) => {
                 setIsLoading(false);
             })
             .catch((err) => {
-                console.log(err.message);
-                setIsLoading(false);
-                setIsOffline(true);
+                if (err.res && err.res.status !== 401){
+                    console.log(err.message);
+                    setIsLoading(false);
+                    setIsOffline(true);
+                }
             });
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.address]);
