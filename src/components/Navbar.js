@@ -1,4 +1,4 @@
-import RenderPrint from '../pdf/RenderPrint';
+import {PDFRender, ImageRender} from '../pdf/Render';
 
 const Navbar = ({setAuth, setIsOffline, unsavedChanges, setUnsavedChanges, setNavUnsavedChanges, setSaveUpdate, setUpdate, update, day, address, setDay}) => {
     
@@ -89,7 +89,8 @@ const Navbar = ({setAuth, setIsOffline, unsavedChanges, setUnsavedChanges, setNa
             <div className="container-fluid mt-2">
                 <div className="row">
                     <div className="col-sm-4 d-flex justify-content-start">
-                        <RenderPrint day={day} address={address}/>
+                        <PDFRender address={address}/>
+                        <ImageRender day={day} address={address}/>
                     </div>
                     <div className="col-sm-4 d-flex justify-content-center">
                         <button onClick={sunday} type="button" className={`mx-1 nav-text btn btn-primary btn-lg clickable-ratio ${day === 'Sunday' ? 'active' : ''}`}>S</button>
