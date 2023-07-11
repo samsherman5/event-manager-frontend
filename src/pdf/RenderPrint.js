@@ -1,15 +1,15 @@
 import { createRoot } from 'react-dom/client';
-import ComponentToPrint from './ComponentToPrint';
+// import ComponentToPrint from './ComponentToPrint';
 import ComponentToImage from './ComponentToImage';
 
 const RenderPrint = (props) => {
   const container = document.getElementById('root');
   const root = createRoot(container);
 
-  function renderPrintComponent() {
-    root.render(<ComponentToPrint address={props.address} />);
-    document.body.style.backgroundColor = 'white';
-  }
+  // function renderPrintComponent() {
+  //   root.render(<ComponentToPrint address={props.address} />);
+  //   document.body.style.backgroundColor = 'white';
+  // }
 
   function renderImageComponent() {
     root.render(<ComponentToImage day={props.day} address={props.address}  />);
