@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Login = (props) => {
     const link = window.location.href; // link to current page
     const [isIncorrect, setIsIncorrect] = useState(false); // If the backend responded that the psw is incorrect
 
-    if (link.endsWith("?")) {
-        setIsIncorrect(true);
-    }
+    useEffect(() => {
+        if (link.endsWith("?")) {
+          setIsIncorrect(true);
+        }
+    }, [link]);
 
     return (
         <div className="d-flex flex-column text-center justify-content-center align-items-center" style={{ height: "100vh" }}>
