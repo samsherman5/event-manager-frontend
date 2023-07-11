@@ -1,13 +1,12 @@
-/* eslint-disable no-script-url */
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState} from 'react';
 import AutoComplete from './AutoComplete';
 
 
-const Column = (props) => {
+const Column = ({organizer, unsavedChanges, saveUpdate, setSaveUpdate, setUnsavedChanges, time, _id, setUpdate, update, setIsOffline, setAuth, address, day, title}) => {
     // States & Refs
-    const [organizer, setOrganizer] = useState(props.organizer); // For exiting input
-    const title = useRef(null);
+    const [organizers, setOrganizers] = useState(organizer); // For exiting input
+    const titleRef = useRef(null);
     const timeRef = useRef(null);
 
     // ----------------------------------------
@@ -17,21 +16,21 @@ const Column = (props) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                _id: props._id
+                _id: _id
             }),
             credentials: "include"
         };
-        fetch(`${props.address}/remove_event`, requestOptions)
+        fetch(`${address}/remove_event`, requestOptions)
             .then((res) => {
                 if (res.status === 401) {
-                    props.setAuth(true);
+                    setAuth(true);
                     return;
                 }
-                props.setUpdate(!props.update);
+                setUpdate(!update);
             })
             .catch((error) => {
                 console.log(error);
-                props.setIsOffline(true);
+                setIsOffline(true);
             });
     }
 
@@ -41,29 +40,29 @@ const Column = (props) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                _id: props._id,
-                title: title.current.textContent,
-                organizer: organizer,
+                _id: _id,
+                title: titleRef.current.textContent,
+                organizer: organizers,
                 time: timeRef.current.textContent,
-                day: props.day
+                day: day
             }),
             credentials: "include"
         };
-        fetch(`${props.address}/edit_event`, requestOptions)
+        fetch(`${address}/edit_event`, requestOptions)
             .then((res) => {
                 if (res.status === 401) {
-                    props.setAuth(true);
+                    setAuth(true);
                     return;
                 }
-                props.setUpdate(!props.update);
+                setUpdate(!update);
             })
             .catch((error) => {
                 console.log(error);
-                props.setIsOffline(true);
+                setIsOffline(true);
             });
 
-        if (props.unsavedChanges){
-            props.setUnsavedChanges(false);
+        if (unsavedChanges){
+            setUnsavedChanges(false);
         }
 
         return;
@@ -71,8 +70,8 @@ const Column = (props) => {
 
     // Hit Enter to Stop Typing
     function handleKeyDown(event) {
-        if (!props.unsavedChanges){
-            props.setUnsavedChanges(true);
+        if (!unsavedChanges){
+            setUnsavedChanges(true);
         }
         if (event.key === "Enter") {
             event.preventDefault();
@@ -81,62 +80,60 @@ const Column = (props) => {
     }
 
     function addOrganizer(){
-        if (!props.unsavedChanges){
-            props.setUnsavedChanges(true);
+        if (!unsavedChanges){
+            setUnsavedChanges(true);
         }
-        setOrganizer([
-            ...organizer, "Organizer"
+        setOrganizers([
+            ...organizers, "Organizer"
         ]);
     }
 
     function removeOrganizer(){
-        if (!props.unsavedChanges){
-            props.setUnsavedChanges(true);
+        if (!unsavedChanges){
+            setUnsavedChanges(true);
         }
-        setOrganizer(organizer.slice(0, -1));
+        setOrganizers(organizers.slice(0, -1));
     }
 
     const changeTime = (event, time) => {
-        if (!props.unsavedChanges){
-            props.setUnsavedChanges(true);
+        if (!unsavedChanges){
+            setUnsavedChanges(true);
         }
-        document.getElementById(`time-tag-${props._id}`).innerHTML = time;
+        document.getElementById(`time-tag-${_id}`).innerHTML = time;
 	};
 
     useEffect(() => {
-        if (props.saveUpdate === true) {
+        if (saveUpdate === true) {
             saveColumn();
-            props.setSaveUpdate(false);
+            setSaveUpdate(false);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [props.saveUpdate]);
+    }, [saveUpdate]);
 
     useEffect(() => {
-        setOrganizer(props.organizer);
-    }, [props.organizer])
+        setOrganizers(organizer);
+    }, [organizer])
       
 
     return (
         
-        // eslint-disable-next-line jsx-a11y/anchor-is-valid
-        <div id={props._id} className="list-group-item d-flex gap-3 py-3 st-backgroundblue" aria-current="true">
+        <div id={_id} className="list-group-item d-flex gap-3 py-3 st-backgroundblue" aria-current="true">
             <div className="d-flex gap-2 w-100 justify-content-between">
                 <div>
                     <h6 
                         spellCheck={false}
-                        ref={title}
+                        ref={titleRef}
                         onKeyDown={handleKeyDown} 
                         contentEditable={true} 
                         suppressContentEditableWarning={true} 
                         className="editable-content title mb-0"
                     >
-                        {props.title}
+                        {title}
                     </h6>
                     <div className="container p-0">
                         <div className="row m-0">
-                            {organizer.map((item, index) => {
+                            {organizers.map((item, index) => {
                                 return (
-                                    <AutoComplete key={index} unsavedChanges={props.unsavedChanges} setUnsavedChanges={props.setUnsavedChanges} organizer={organizer} setOrganizer={setOrganizer} item={organizer[index]} index={index}/>
+                                    <AutoComplete key={index} unsavedChanges={unsavedChanges} setUnsavedChanges={setUnsavedChanges} organizer={organizers} setOrganizer={setOrganizers} item={organizers[index]} index={index}/>
                                 );
                             })}
                             <div className='col p-0 me-1'>
@@ -149,14 +146,12 @@ const Column = (props) => {
                             </div>
                         </div>
                     </div>
-                    {/* <p onClick={addOrganizer} className="organizer-nametag me-2 mt-2 mb-0 p-1 btn-hover w-100 weight-500" id="add-column" type="submit">+</p> */}
                 </div>
             </div>
-            {/* <small class="text-nowrap bold st-blue">8:30PM</small> */}
             <div className="d-flex flex-column align-items-end">
                 <div className="dropdown">
-                    <button ref={timeRef} id={`time-tag-${props._id}`} className="btn btn-bluish text-white text-nowrap time small-tag" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {props.time}
+                    <button ref={timeRef} id={`time-tag-${_id}`} className="btn btn-bluish text-white text-nowrap time small-tag" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {time}
                     </button>
                     <ul className="dropdown-menu">
                         <li key="1"><span className="dropdown-item no-select" onClick={(event) => changeTime(event, "6:30PM")}>6:30PM</span></li>

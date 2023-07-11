@@ -13,14 +13,13 @@ const styles = StyleSheet.create({
     }
   });
 
-const ComponentToPrint = (props) => {
-    let day = props.day;
+const ComponentToPrint = ({day, address}) => {
 
     return (
         <Document>
             <Page size="A4" className="App" styles={styles.page}>
                 <View style={styles.section}>
-                    <PrintableColumnPage view={"day"} address={props.address} day={day} />
+                    <PrintableColumnPage view={"day"} address={address} day={day} />
                 </View>
             </Page>
         </Document>

@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Column from './Column';
 import { useState, useEffect } from 'react';
 
-const ColumnPage = (props) => {
+const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpdate, saveUpdate, update, setUpdate, setIsOffline, address}) => {
     const [columns, setColumns] = useState([]);
     
     // add column
@@ -13,24 +14,24 @@ const ColumnPage = (props) => {
                 title: 'Event Name',
                 organizer: ["Organizer"],
                 time: "6:30PM",
-                day: props.day
+                day: day
             }),
             credentials: "include"
         };
-        fetch(`${props.address}/events`, requestOptions)
+        fetch(`${address}/events`, requestOptions)
             .then((res) => {
                 if (res.status === 401) {
-                    props.setAuth(true);
+                    setAuth(true);
                     return;
                 }
                 return res.json(); // Continue to the next step when status is not 401
             })
             .then((data) => {
-                props.setUpdate(!props.update);
+                setUpdate(!update);
             })
             .catch((error) => {
                 console.log(error);
-                props.setIsOffline(true);
+                setIsOffline(true);
             });
     };
 
@@ -38,14 +39,14 @@ const ColumnPage = (props) => {
     useEffect(() => {
         const requestOptions = {
             method: 'GET',
-            headers: { 'Content-Type': 'application/json', 'day': props.day },
+            headers: { 'Content-Type': 'application/json', 'day': day },
             credentials: 'include'
         };
 
-        fetch(`${props.address}/events`, requestOptions)
+        fetch(`${address}/events`, requestOptions)
             .then((res) => {
                 if (res.status === 401) {
-                    props.setAuth(true);
+                    setAuth(true);
                     return Promise.reject(); // Reject the promise to skip to the catch block
                 } else {
                     return res.json()
@@ -58,10 +59,9 @@ const ColumnPage = (props) => {
             })
             .catch((error) => {
                 console.log(error);
-                props.setIsOffline(true);
+                setIsOffline(true);
             });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [props.day, props.update]);
+    }, [day, update]);
 
     return (
         <div>
@@ -69,7 +69,7 @@ const ColumnPage = (props) => {
             <div className="list-group">
                 {columns.map((column, index) => {
                     return (
-                        <Column setAuth={props.setAuth} key={index} setIsOffline={props.setIsOffline} address={props.address} unsavedChanges={props.unsavedChanges} setUnsavedChanges={props.setUnsavedChanges} setSaveUpdate={props.setSaveUpdate} saveUpdate={props.saveUpdate} setUpdate={props.setUpdate} update={props.update} _id={column._id} title={column.title} organizer={column.organizer} day={props.day} time={column.time}></Column>
+                        <Column setAuth={setAuth} key={index} setIsOffline={setIsOffline} address={address} unsavedChanges={unsavedChanges} setUnsavedChanges={setUnsavedChanges} setSaveUpdate={setSaveUpdate} saveUpdate={saveUpdate} setUpdate={setUpdate} update={update} _id={column._id} title={column.title} organizer={column.organizer} day={day} time={column.time}></Column>
                     );
                 })}
             </div>

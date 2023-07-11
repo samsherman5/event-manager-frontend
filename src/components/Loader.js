@@ -1,30 +1,22 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-import Offline from "../subcomponents/Offline";
-import Login from "../subcomponents/Login";
 import { createRoot } from 'react-dom/client';
+import Login from "../subcomponents/Login";
+import Offline from "../subcomponents/Offline";
 
-const OfflineMode = (props) => {
+const OfflineMode = ({address, setAuth, setIsOffline, auth, isOffline}) => {
     const container = document.getElementById('root');
     const root = createRoot(container);
 
-    function offline() {
-        root.render(<Offline/>);
-    }
-    
-    function auth() {
-        root.render(<Login address={props.address} setIsOffline={props.setIsOffline} setAuth={props.setAuth} setUpdate={props.setUpdate}/>);
-        document.body.style.backgroundColor = '#f0f0f0';
-    }
-
     useEffect(() => {
-        if(props.auth) {
-            auth();
+        if(auth) {
+            root.render(<Login address={address} setIsOffline={setIsOffline} setAuth={setAuth}/>);
+            document.body.style.backgroundColor = '#f0f0f0';
         }
-        else if(props.isOffline){
-            offline();
+        else if(isOffline){
+            root.render(<Offline/>);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [props.isOffline, props.auth]);
+    }, [isOffline, auth]);
 };
 
 export default OfflineMode;

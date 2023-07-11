@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { $ }  from 'react-jquery-plugin';
 
-const UnsavedChanges = (props) => {
+const UnsavedChanges = ({unsavedChanges, setNavUnsavedChanges, navUnsavedChanges}) => {
   useEffect(() => {
     const handleBeforeUnload = (event) => {
-      if (props.unsavedChanges) {
+      if (unsavedChanges) {
         event.preventDefault();
         event.returnValue = '';
       }
@@ -15,18 +15,18 @@ const UnsavedChanges = (props) => {
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
-  }, [props.unsavedChanges]);
+  }, [unsavedChanges]);
   
   useEffect(() => {
-    if(props.navUnsavedChanges === true) {
+    if(navUnsavedChanges === true) {
       $('#unsavedChanges').modal('show');
     } else {
       $('#unsavedChanges').modal('hide');
     }
-  }, [props.navUnsavedChanges]);
+  }, [navUnsavedChanges]);
 
   function hideModal() {
-    props.setNavUnsavedChanges(!props.navUnsavedChanges);
+    setNavUnsavedChanges(!navUnsavedChanges);
     $('#unsavedChanges').modal('hide');
   }
   return (

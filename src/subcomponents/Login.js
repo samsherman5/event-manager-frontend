@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
-
-const Login = (props) => {
+const Login = ({address}) => {
     const link = window.location.href; // link to current page
     const username = useRef(null);
     const password = useRef(null);
@@ -9,7 +8,7 @@ const Login = (props) => {
     function handleSubmit(event) {
         event.preventDefault();
         
-        fetch(`${props.address}/login`, {
+        fetch(`${address}/login`, {
             method: 'POST',
             body: JSON.stringify({
                 username: username.current.value,

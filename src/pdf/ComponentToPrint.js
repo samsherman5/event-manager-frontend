@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     }
   });
 
-const ComponentToPrint = (props) => (
+const ComponentToPrint = ({address}) => (
     <Document>
         <Page size="A4" className="App" styles={styles.page}>
             <View style={styles.section}>
@@ -22,22 +22,22 @@ const ComponentToPrint = (props) => (
                 </div>
             </View>
             <View style={styles.section}>
-                <PrintableColumnPage address={props.address} day="Sunday"/>
+                <PrintableColumnPage address={address} day="Sunday"/>
             </View>
             <View style={styles.section}>
-                <PrintableColumnPage address={props.address} day="Monday"/>
+                <PrintableColumnPage address={address} day="Monday"/>
             </View>
             <View style={styles.section}>
-                <PrintableColumnPage address={props.address} day="Tuesday"/>
+                <PrintableColumnPage address={address} day="Tuesday"/>
             </View>
             <View style={styles.section}>
-                <PrintableColumnPage address={props.address} day="Wednesday"/>
+                <PrintableColumnPage address={address} day="Wednesday"/>
             </View>
             <View style={styles.section}>
-                <PrintableColumnPage address={props.address} day="Thursday"/>
+                <PrintableColumnPage address={address} day="Thursday"/>
             </View>
             <View style={styles.section}>
-                <PrintableColumnPage address={props.address} day="Friday"/>
+                <PrintableColumnPage address={address} day="Friday"/>
             </View>
         </Page>
     </Document>

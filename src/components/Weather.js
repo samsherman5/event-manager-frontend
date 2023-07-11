@@ -1,16 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 
-const Weather = (props) => {
+const Weather = ({address, setAuth}) => {
     const [weather, setWeather] = useState([]);
 
     const [isLoading, setIsLoading] = useState(true);
     const [isOffline, setIsOffline] = useState(false);
 
     useEffect(() => {
-        fetch(`${props.address}/weather`, {credentials: "include"})
+        fetch(`${address}/weather`, {credentials: "include"})
             .then((res) => {
                 if (res.status === 401) {
-                    props.setAuth(true);
+                    setAuth(true);
                     setIsOffline(true);
                     setIsLoading(false);
                     return;
@@ -26,8 +27,7 @@ const Weather = (props) => {
                 setIsLoading(false);
                 setIsOffline(true);
             });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [props.address]);
+    }, [address]);
 
     return (
         <div className="container mt-5">

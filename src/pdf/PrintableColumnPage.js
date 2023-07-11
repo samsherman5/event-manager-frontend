@@ -1,29 +1,29 @@
 import PrintableColumn from './PrintableColumn';
 import { useState, useEffect } from 'react';
 
-const PrintableColumnPage = (props) => {
+const PrintableColumnPage = ({day, address, view,}) => {
     const [columns, setColumns] = useState([]);
 
     useEffect(() => {
       const requestOptions = {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json', 'day': props.day },
+        headers: { 'Content-Type': 'application/json', 'day': day },
         credentials: "include"
       };
 
-      fetch(`${props.address}/events`, requestOptions)
+      fetch(`${address}/events`, requestOptions)
         .then((res) => res.json())
         .then((data) => {
           setColumns(data.events);
           console.log(data);
         });
-    }, [props.address, props.day]);
+    }, [address, day]);
 
     return (
       <div>
-        {!props.view && 
+        {!view && 
           <div> 
-            <h3 className="text-left printable-dorange">{props.day}</h3> 
+            <h3 className="text-left printable-dorange">{day}</h3> 
             <hr className=""/> 
           </div>
         }
@@ -31,7 +31,7 @@ const PrintableColumnPage = (props) => {
             <div className="list-group">
               {columns.map((column, index) => {
                   return (
-                    <PrintableColumn key={index} _id={column._id} title={column.title} organizer={column.organizer} day={props.day} time={column.time}/>
+                    <PrintableColumn key={index} _id={column._id} title={column.title} organizer={column.organizer} day={day} time={column.time}/>
                   );
               })}
             </div>
