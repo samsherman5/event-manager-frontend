@@ -52,7 +52,7 @@ const ColumnPage = (props) => {
             setColumns(data.events);
           })
           .catch((error) => {
-            console.log(error.message);
+            console.log(error);
             props.setIsOffline(true);
           });
     // eslint-disable-next-line react-hooks/exhaustive-deps

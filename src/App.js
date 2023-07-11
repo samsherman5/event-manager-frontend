@@ -1,4 +1,3 @@
-// import './App.css';
 import Clock from './components/Clock';
 import Weather from './components/Weather';
 import ColumnPage from './components/ColumnPage';
@@ -12,6 +11,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function App() {
   // https://event-manager-backend-d7uu.onrender.com
   const address = 'https://event-manager-backend-d7uu.onrender.com'; // address of backend
+
+
   const [update, setUpdate] = useState(false); // triggers a refresh of events
   const [saveUpdate, setSaveUpdate] = useState(false); // triggers a save of events
   const [day, setDay] = useState("None"); // sets the current day

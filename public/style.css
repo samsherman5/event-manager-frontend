@@ -69,6 +69,11 @@ html body {
     font-weight: 650 !important;
 }
 
+.weight-550 {
+    font-weight: 550 !important;
+}
+
+
 /* Column Component */
 
 .add-nametag {

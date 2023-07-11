@@ -1,4 +1,13 @@
+import { useState } from "react";
+
 const Login = (props) => {
+    const link = window.location.href; // link to current page
+    const [isIncorrect, setIsIncorrect] = useState(false); // If the backend responded that the psw is incorrect
+
+    if (link.endsWith("?")) {
+        setIsIncorrect(true);
+    }
+
     return (
         <div className="d-flex flex-column text-center justify-content-center align-items-center" style={{ height: "100vh" }}>
             <form action={`${props.address}/login`} method="post" className="login-form">
@@ -10,9 +19,9 @@ const Login = (props) => {
                     <label htmlFor="inputPassword" className="text-white form-label">Password</label>
                     <input type="password" className="form-control" id="inputPassword" name="password"/>
                 </div>
-                <input type="hidden" name="original" value={window.location.href}/>
+                <input type="hidden" name="original" value={link}/>
                 <button type="submit" className="btn btn-primary">Submit</button>
-                <div className="invalid-feedback">
+                <div className={`weight-550 invalid-feedback ${isIncorrect ? 'd-block' : ''}`}>
                     Incorrect username or password.
                 </div>
             </form>
