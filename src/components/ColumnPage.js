@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 const ColumnPage = (props) => {
     const [columns, setColumns] = useState([]);
     
-
+    // add column
     function addColumn() {
         const requestOptions = {
             method: 'POST',
@@ -34,27 +34,32 @@ const ColumnPage = (props) => {
             });
     };
 
+    // update events
     useEffect(() => {
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', 'day': props.day },
             credentials: 'include'
         };
+
         fetch(`${props.address}/events`, requestOptions)
             .then((res) => {
                 if (res.status === 401) {
                     props.setAuth(true);
-                    return;
+                    return Promise.reject(); // Reject the promise to skip to the catch block
+                } else {
+                    return res.json()
+                        .then((data) => {
+                            if (data) {
+                                setColumns(data.events);
+                            }
+                        });
                 }
-                return res.json(); // Continue to the next step when status is not 401
             })
-          .then((data) => {
-            setColumns(data.events);
-          })
-          .catch((error) => {
-            console.log(error);
-            props.setIsOffline(true);
-          });
+            .catch((error) => {
+                console.log(error);
+                props.setIsOffline(true);
+            });
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.day, props.update]);
 
