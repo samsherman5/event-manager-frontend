@@ -23,7 +23,7 @@ const Login = (props) => {
                 </div>
                 <input type="hidden" name="original" value={link}/>
                 <button type="submit" className="btn btn-primary">Submit</button>
-                <p className={`text-danger mt-2 ${!isIncorrect ? 'd-none' : ''}`}>
+                <p className={`text-muted mt-2 weight-500 ${!isIncorrect ? 'd-none' : ''}`}>
                     Incorrect username or password.
                 </p>
             </form>

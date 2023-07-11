@@ -9,8 +9,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
-  // https://event-manager-backend-d7uu.onrender.com
-  const address = 'https://event-manager-backend-d7uu.onrender.com'; // address of backend
+  var address;
+  if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+    address = 'http://localhost:8080';
+  } else {
+    address = 'https://event-manager-backend-d7uu.onrender.com';
+  }
 
 
   const [update, setUpdate] = useState(false); // triggers a refresh of events

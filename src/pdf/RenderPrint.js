@@ -1,12 +1,29 @@
-import { createRoot } from 'react-dom/client';
+import { pdf } from '@react-pdf/renderer';
+import { useState } from 'react';
 import ComponentToPrint from './ComponentToPrint';
 
 const RenderPrint = (props) => {
+  const [pdfBlob, setPdfBlob] = useState(null);
+
   function renderPrintComponent() {
-    const container = document.getElementById('root');
-    const root = createRoot(container);
-    root.render(<ComponentToPrint address={props.address} />);
-    document.body.style.backgroundColor = 'white';
+    pdf(<ComponentToPrint />)
+      .toBlob()
+      .then((blob) => {
+        setPdfBlob(blob);
+        downloadPdf(blob);
+      })
+      .catch((error) => {
+        console.error('Error rendering or saving PDF:', error);
+      });
+  }
+  
+  function downloadPdf() {
+    const url = URL.createObjectURL(pdfBlob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'document.pdf';
+    a.click();
+    URL.revokeObjectURL(url);
   }
   
   return (

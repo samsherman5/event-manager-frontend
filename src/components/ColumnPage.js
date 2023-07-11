@@ -57,10 +57,8 @@ const ColumnPage = (props) => {
                 }
             })
             .catch((error) => {
-                if (error.res && error.res.status !== 401) {
-                    console.log(error);
-                    props.setIsOffline(true);
-                }
+                console.log(error);
+                props.setIsOffline(true);
             });
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.day, props.update]);
