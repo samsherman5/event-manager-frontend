@@ -23,9 +23,9 @@ const Login = (props) => {
                 </div>
                 <input type="hidden" name="original" value={link}/>
                 <button type="submit" className="btn btn-primary">Submit</button>
-                <div className={`weight-550 invalid-feedback ${isIncorrect ? 'd-block' : ''}`}>
+                <p className={`text-danger mt-2 ${!isIncorrect ? 'd-none' : ''}`}>
                     Incorrect username or password.
-                </div>
+                </p>
             </form>
         </div>
     );
