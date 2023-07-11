@@ -22,9 +22,9 @@ const Login = ({address}) => {
             console.log(res);
             if (res.status && res.status === 401) {
                 setIsIncorrect(true);
-                event.target.reset();
+                // event.target.reset();
             } else if (res.status && res.status === 200) {
-                window.location.reload();
+                // window.location.reload();
             }
         }).catch(err => {
             console.error(err);
