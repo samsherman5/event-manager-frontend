@@ -19,7 +19,7 @@ const RenderPrint = (props) => {
   return (
     <div>
       {/* <button onClick={renderPrintComponent} type="button" className='mx-1 btn btn-primary nav-text btn-lg action-ratio'>PDF</button> */}
-      <button onClick={renderImageComponent} type="button" className='mx-1 btn btn-primary nav-text btn-lg action-ratio'>Today's PDF</button>
+      <button onClick={renderImageComponent} type="button" className='mx-1 btn btn-primary nav-text btn-lg action-ratio'>Today</button>
     </div>
   );
 };
