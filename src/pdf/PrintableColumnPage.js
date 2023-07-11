@@ -21,8 +21,12 @@ const PrintableColumnPage = (props) => {
 
     return (
       <div>
-        <h3 className="text-left printable-dorange">{props.day}</h3>
-        <hr className=""/>
+        {!props.view && 
+          <div> 
+            <h3 className="text-left printable-dorange">{props.day}</h3> 
+            <hr className=""/> 
+          </div>
+        }
           <div className="d-flex flex-column flex-md-row pb-1 gap-4 align-items-center justify-content-center">
             <div className="list-group">
               {columns.map((column, index) => {

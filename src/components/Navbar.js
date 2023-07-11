@@ -90,7 +90,7 @@ const Navbar = (props) => {
             <div className="container-fluid mt-2">
                 <div className="row">
                     <div className="col-sm-4 d-flex justify-content-start">
-                        <RenderPrint address={props.address} update={props.update} setUpdate={props.setUpdate}/>
+                        <RenderPrint day={props.day} address={props.address}/>
                     </div>
                     <div className="col-sm-4 d-flex justify-content-center">
                         <button onClick={sunday} type="button" className={`mx-1 nav-text btn btn-primary btn-lg clickable-ratio ${props.day === 'Sunday' ? 'active' : ''}`}>S</button>

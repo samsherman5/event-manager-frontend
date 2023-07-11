@@ -110,6 +110,10 @@ const Column = (props) => {
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.saveUpdate]);
+
+    useEffect(() => {
+        setOrganizer(props.organizer);
+    }, [props.organizer])
       
 
     return (
