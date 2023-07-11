@@ -72,7 +72,7 @@ const Navbar = (props) => {
                 props.setUpdate(!props.update);
             })
             .catch((error) => {
-                console.log(error.message);
+                console.log(error);
                 props.setIsOffline(true);
             });
     }
