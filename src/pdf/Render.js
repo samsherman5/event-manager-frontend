@@ -1,13 +1,14 @@
 import { createRoot } from 'react-dom/client';
 import ComponentToImage from './ComponentToImage';
-import ComponentToPrint from './ComponentToPrint';
+import Print from './Print';
+
 
 const PDFRender = ({address}) => {
   const container = document.getElementById('root');
   const root = createRoot(container);
 
   function renderPrintComponent() {
-    root.render(<ComponentToPrint address={address} />);
+    root.render(<Print address={address} />);
     document.body.style.backgroundColor = 'white';
   }
   
