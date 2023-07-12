@@ -18,7 +18,7 @@ function App() {
     <Routes>
       <Route index element={<Main address={address} />}/>
       <Route path="login" element={<Login address={address} />} />
-      <Route path="503" element={<Error503 />} />
+      <Route path="503" element={<Error503 address={address} />} />
       <Route path="*" element={<Error404 />} />
     </Routes>
   );

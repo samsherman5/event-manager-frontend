@@ -1,24 +1,25 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Error503 = () => {
+const Error503 = ({address}) => {
   const navigate = useNavigate();
   document.body.style.backgroundColor = '#f0f0f0';
 
   useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      event.preventDefault();
-      event.returnValue = '';
-
-      navigate('/');
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, [navigate]);
+    fetch (`${address}/`, {
+      method: 'GET',
+      credentials: 'include',
+      withCredentials: true
+    }).then(res => {
+        if (res.status && res.status === 401) {
+            navigate('/login');
+        } else if (res.status && res.status === 404) {
+            navigate('/');
+        }
+    }).catch(err => {
+        return;
+    });
+   }, [address, navigate]);
 
   return (
     <div className="d-flex flex-column text-center justify-content-center align-items-center" style={{ height: "100vh" }}>
