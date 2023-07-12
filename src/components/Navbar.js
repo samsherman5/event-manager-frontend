@@ -1,4 +1,5 @@
 import { ImageRender, PDFRender } from '../pdf/Render';
+import ClearEvents from './buttons/ClearEvents';
 
 const Navbar = ({setAuth, setIsOffline, unsavedChanges, setUnsavedChanges, setNavUnsavedChanges, setSaveUpdate, setUpdate, update, day, address, setDay}) => {
     
@@ -56,26 +57,6 @@ const Navbar = ({setAuth, setIsOffline, unsavedChanges, setUnsavedChanges, setNa
         }
     }
 
-    function clear_events () {
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            credentials: "include"
-        };
-        fetch(`${address}/clear_events`, requestOptions)
-            .then((res) => {
-                if (res.status === 401) {
-                    setAuth(true);
-                    return;
-                }
-                setUpdate(!update);
-            })
-            .catch((error) => {
-                console.log(error);
-                setIsOffline(true);
-            });
-    }
-
     async function toggle_update() {
         setUpdate(!update);
     }
@@ -101,8 +82,8 @@ const Navbar = ({setAuth, setIsOffline, unsavedChanges, setUnsavedChanges, setNa
                         <button onClick={friday} type="button" className={`mx-1 nav-text btn btn-primary btn-lg clickable-ratio ${day === 'Friday' ? 'active' : ''}`}>F</button>
                     </div>
                     <div className="col-sm-4 d-flex justify-content-end">
-                    <button onClick={update_save} type="button" className='mx-1 nav-text btn btn-primary btn-lg action-ratio'>Save</button>
-                        <button onClick={clear_events} type="button" className='mx-1 nav-text btn btn-primary btn-lg action-ratio'>Clear</button>
+                        <button onClick={update_save} type="button" className='mx-1 nav-text btn btn-primary btn-lg action-ratio'>Save</button>
+                        <ClearEvents setUpdate={setUpdate} update={update} setAuth={setAuth} address={address} setIsOffline={setIsOffline}/>
                     </div>
                 </div>
             </div>

@@ -1,15 +1,11 @@
-import { createRoot } from 'react-dom/client';
-import ComponentToImage from './ComponentToImage';
-import Print from './Print';
+import { useNavigate } from 'react-router-dom';
 
 
 const PDFRender = ({address}) => {
-  const container = document.getElementById('root');
-  const root = createRoot(container);
+  const navigate = useNavigate();
 
   function renderPrintComponent() {
-    root.render(<Print address={address} />);
-    document.body.style.backgroundColor = 'white';
+    navigate('/pdf');
   }
   
   return (
@@ -20,12 +16,10 @@ const PDFRender = ({address}) => {
 };
 
 const ImageRender = ({day, address}) => {
-  const container = document.getElementById('root');
-  const root = createRoot(container);
-  
+  const navigate = useNavigate();
+
   function renderImageComponent() {
-    root.render(<ComponentToImage day={day} address={address}  />);
-    document.body.style.backgroundColor = 'white';
+    navigate('/image');
   }
   
   return (
