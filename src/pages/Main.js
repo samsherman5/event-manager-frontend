@@ -7,7 +7,6 @@ import Navbar from '../components/Navbar';
 import UnsavedChanges from '../components/UnsavedChanges';
 
 function Main({address}) {
-  console.log("Ran");
   document.body.style.backgroundColor = '#2d5dcf';
   const [update, setUpdate] = useState(false); // triggers a refresh of events
   const [saveUpdate, setSaveUpdate] = useState(false); // triggers a save of events
