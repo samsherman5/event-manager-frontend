@@ -1,6 +1,6 @@
+import { PDFViewer } from '@react-pdf/renderer';
 import React from 'react';
 import ComponentToPrint from './ComponentToPrint';
-import { PDFViewer } from '@react-pdf/renderer';
 
 const Print = () => (
   <PDFViewer>

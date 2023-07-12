@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from 'react';
 import Column from './Column';
-import { useState, useEffect } from 'react';
 
 const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpdate, saveUpdate, update, setUpdate, setIsOffline, address}) => {
     const [columns, setColumns] = useState([]);

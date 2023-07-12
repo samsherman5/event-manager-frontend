@@ -1,9 +1,12 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 const Login = ({address}) => {
-    const link = window.location.href; // link to current page
+    const navigate = useNavigate();
     const username = useRef(null);
     const password = useRef(null);
     const [isIncorrect, setIsIncorrect] = useState(false); // If the backend responded that the psw is incorrect
+    document.body.style.backgroundColor = '#f0f0f0';
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -17,13 +20,14 @@ const Login = ({address}) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials: 'include'
+            credentials: 'include',
+            withCredentials: true
         }).then(res => {
             if (res.status && res.status === 401) {
                 setIsIncorrect(true);
                 event.target.reset();
             } else if (res.status && res.status === 200) {
-                window.location.reload();
+                navigate('/');
             }
         }).catch(err => {
             console.error(err);
@@ -41,7 +45,6 @@ const Login = ({address}) => {
                     <label htmlFor="inputPassword" className="text-black large-label form-label">Password</label>
                     <input ref={password} type="password" className="form-control" id="inputPassword" name="password"/>
                 </div>
-                <input type="hidden" name="original" value={link}/>
                 <button type="submit" className="btn btn-primary">Submit</button>
                 <p className={`invalid-feedback mt-2 weight-500 ${isIncorrect ? 'd-block' : ''}`}>
                     Incorrect username or password.

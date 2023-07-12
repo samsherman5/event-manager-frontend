@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { $ }  from 'react-jquery-plugin';
+import { $ } from 'react-jquery-plugin';
+
 
 const UnsavedChanges = ({unsavedChanges, setNavUnsavedChanges, navUnsavedChanges}) => {
   useEffect(() => {
@@ -17,13 +18,15 @@ const UnsavedChanges = ({unsavedChanges, setNavUnsavedChanges, navUnsavedChanges
     };
   }, [unsavedChanges]);
   
-  useEffect(() => {
-    if(navUnsavedChanges === true) {
-      $('#unsavedChanges').modal('show');
-    } else {
-      $('#unsavedChanges').modal('hide');
-    }
-  }, [navUnsavedChanges]);
+  // useEffect(() => {
+  //   if($('#unsavedChanges').length) {
+  //     if(navUnsavedChanges === true) {
+  //       $('#unsavedChanges').modal('show');
+  //     } else {
+  //       $('#unsavedChanges').modal('hide');
+  //     }
+  //   }
+  // }, [navUnsavedChanges]);
 
   function hideModal() {
     setNavUnsavedChanges(!navUnsavedChanges);

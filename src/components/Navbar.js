@@ -1,4 +1,4 @@
-import {PDFRender, ImageRender} from '../pdf/Render';
+import { ImageRender, PDFRender } from '../pdf/Render';
 
 const Navbar = ({setAuth, setIsOffline, unsavedChanges, setUnsavedChanges, setNavUnsavedChanges, setSaveUpdate, setUpdate, update, day, address, setDay}) => {
     

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import Papa from 'papaparse';
+import { useEffect, useState } from "react";
 
 const AutoComplete = ({organizer, index, setOrganizer, unsavedChanges, setUnsavedChanges, item}) => {
     const [staffList, setStaffList] = useState([]); // array of staff
@@ -121,7 +121,6 @@ const AutoComplete = ({organizer, index, setOrganizer, unsavedChanges, setUnsave
         }
         return filteredStaff;
     }
-    console.log(organizer);
     return (
         <div className="col-auto p-0 me-1">
             <div className="d-inline-flex align-items-center justify-content-center py-1 px-2 w-auto text-nowrap organizer-nametag mt-2 py-0">

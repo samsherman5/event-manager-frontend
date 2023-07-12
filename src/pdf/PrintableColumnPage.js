@@ -1,5 +1,5 @@
+import { useEffect, useState } from 'react';
 import PrintableColumn from './PrintableColumn';
-import { useState, useEffect } from 'react';
 
 const PrintableColumnPage = ({day, address, view,}) => {
     const [columns, setColumns] = useState([]);

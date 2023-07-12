@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
-import ComponentToPrint from './ComponentToPrint';
 import ComponentToImage from './ComponentToImage';
+import ComponentToPrint from './ComponentToPrint';
 
 const PDFRender = ({address}) => {
   const container = document.getElementById('root');
@@ -34,4 +34,4 @@ const ImageRender = ({day, address}) => {
   );
 };
 
-export {PDFRender, ImageRender};
+export { ImageRender, PDFRender };
