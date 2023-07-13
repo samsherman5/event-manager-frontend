@@ -1,12 +1,10 @@
 import Theme from '../components/subcomponents/Theme';
-// import Weather from '../components/Weather';
 import { useState } from 'react';
 import ColumnPage from '../components/ColumnPage';
 import Loader from '../components/Loader';
-import Footer from '../components/Footer';
 import Clock from '../components/subcomponents/Clock';
 
-function Main({address, day, setDay, browser}) {
+function Viewer({address, day, setDay, browser}) {
   const [update, setUpdate] = useState(false); // triggers a refresh of events
   const [saveUpdate, setSaveUpdate] = useState(false); // triggers a save of events
   const [unsavedChanges, setUnsavedChanges] = useState(false); // unsaved changes
@@ -20,7 +18,9 @@ function Main({address, day, setDay, browser}) {
     <div className="App d-flex flex-column min-vh-100">
       <div className="mt-3">
         <Clock size={'display-5'}/>
-        <Theme day={day}/>
+        <div className="mt-2">
+          <Theme day={day}/>
+        </div>
       </div>
       <Loader day={day} browser={browser} auth={auth} isOffline={isOffline}/>
       <div className="container flex-grow-1">
@@ -30,9 +30,8 @@ function Main({address, day, setDay, browser}) {
           </div>
         </div>
       </div>
-      <Footer viewMode={true}/>
     </div>
   );
 }
 
-export default Main;
+export default Viewer;
