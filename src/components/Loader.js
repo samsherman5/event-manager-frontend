@@ -23,7 +23,7 @@ const Loader = ({auth, isOffline, browser, day}) => {
 
     return (
         <>
-            <BgImage day={day}/>
+            <BgImage day={day} auth={auth}/>
         </>
     );
 };

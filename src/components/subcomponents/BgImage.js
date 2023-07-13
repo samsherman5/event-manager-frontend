@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-const BgImage = ({day}) => {
+const BgImage = ({day, auth}) => {
     const fetchData = async (file) => {
         try {
             const response = await fetch(file);
@@ -12,10 +12,12 @@ const BgImage = ({day}) => {
 
     useEffect(() => {
         fetchData('/config/theme_image.json').then((backgroundImage) => {
-            if (backgroundImage && backgroundImage[day]) {
-                document.body.style.backgroundImage = `url(${backgroundImage[day]})`;
-            } else {
-                document.body.style.backgroundImage = "";
+            if(!auth) {
+                if (backgroundImage && backgroundImage[day]) {
+                    document.body.style.backgroundImage = `url(${backgroundImage[day]})`;
+                } else {
+                    document.body.style.backgroundImage = "";
+                }
             }
         });
     });
