@@ -5,6 +5,7 @@ import Error404 from './pages/Error404';
 import PDF from './pages/PDF';
 import JSON from './pages/JSON';
 import Image from './pages/Image';
+import Viewer from './pages/Viewer';
 import BrowserUnsupported from './pages/BrowserUnsupported';
 import { Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
@@ -42,6 +43,7 @@ function App() {
       <Route path="login" element={<Login address={address} />} />
       <Route path="pdf" element={<PDF address={address} />} />
       <Route path="json" element={<JSON address={address} />} />
+      <Route path="viewer" element={<Viewer browser={browser} day={day} setDay={setDay} address={address} />} />
       <Route path="image" element={<Image day={day} address={address} />} />
       <Route path="503" element={<Error503 address={address} />} />
       <Route path="*" element={<Error404 />} />
