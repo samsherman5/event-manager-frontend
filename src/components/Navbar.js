@@ -81,7 +81,7 @@ const Navbar = ({setAuth, setIsOffline, unsavedChanges, setUnsavedChanges, setNa
                         <button onClick={friday} type="button" className={`mx-1 nav-text btn btn-bluish btn-primary btn-lg clickable-ratio ${day === 'Friday' ? 'active' : ''}`}>F</button>
                     </div>
                     <div className="col-sm-4 d-flex justify-content-end">
-                    { !viewMode (
+                    { !viewMode && (
                         <>
                             <button onClick={update_save} type="button" className='mx-1 nav-text btn btn-primary btn-bluish btn-lg action-ratio'>Save</button>
                             <ClearEvents setUpdate={setUpdate} update={update} setAuth={setAuth} address={address} setIsOffline={setIsOffline}/>
