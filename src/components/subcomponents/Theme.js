@@ -20,9 +20,9 @@ const Theme = ({day}) => {
     return (
         <>
             { themes && themes[day]? (
-                <h1 className="my-3 display-3 text-center weight-650 theme"><mark>{themes[day]} {day}</mark></h1>
+                <h1 className="mb-3 display-3 text-center weight-650 theme"><mark>{themes[day]} {day}</mark></h1>
             ) : (
-                <h1 className="my-3 display-3 text-center weight-650 theme"><mark>{day}</mark></h1>
+                <h1 className="mb-3 display-3 text-center weight-650 theme"><mark>{day}</mark></h1>
             )}
         </>
     );

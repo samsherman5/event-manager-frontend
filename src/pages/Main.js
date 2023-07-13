@@ -23,7 +23,9 @@ function Main({address, day, setDay, browser}) {
       <UnsavedChanges unsavedChanges={unsavedChanges} navUnsavedChanges={navUnsavedChanges} setNavUnsavedChanges={setNavUnsavedChanges}/>
       <Loader day={day} browser={browser} auth={auth} isOffline={isOffline}/>
       <Navbar setAuth={setAuth} setIsOffline={setIsOffline} unsavedChanges={unsavedChanges} setUnsavedChanges={setUnsavedChanges} navUnsavedChanges={navUnsavedChanges} setNavUnsavedChanges={setNavUnsavedChanges} setSaveUpdate={setSaveUpdate} saveUpdate={saveUpdate} setUpdate={setUpdate} update={update} day={day} address={address} setDay={setDay}/>
-      <Theme day={day}/>
+      <div className="mt-3">
+        <Theme day={day}/>
+      </div>
       <div className="container flex-grow-1">
         <div className="row">
           {/* <div className="col">

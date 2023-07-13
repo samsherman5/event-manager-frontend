@@ -1,7 +1,7 @@
 //TODO: day_theme dotw date time (Hour and min only no seconds)
 import { useEffect, useState } from "react";
 
-const Clock = () => {
+const Clock = ({size}) => {
     const [time, setTime] = useState();
     const [date, setDate] = useState();
 
@@ -36,7 +36,7 @@ const Clock = () => {
     
 
     return (
-        <h3 className="text-white weight-650 text-center">{date} {time}</h3>
+        <h3 className={`text-white ${size} weight-650 text-center`}>{date} {time}</h3>
     );
 };
 

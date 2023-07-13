@@ -1,13 +1,16 @@
 import { useRef, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
 
 const Login = ({address}) => {
     const navigate = useNavigate();
     const username = useRef(null);
     const password = useRef(null);
     const [isIncorrect, setIsIncorrect] = useState(false); // If the backend responded that the psw is incorrect
-    document.body.style.backgroundColor = '#f0f0f0';
-    document.body.style.backgroundImage = "";
+    useEffect(() => {
+        document.body.style.backgroundColor = '#f0f0f0';
+        document.body.style.backgroundImage = "";
+    })
 
     function handleSubmit(event) {
         event.preventDefault();

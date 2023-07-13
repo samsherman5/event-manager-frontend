@@ -1,9 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import  { useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
 
 const Error404 = () =>  {
-    document.body.style.backgroundColor = '#f0f0f0';
-    document.body.style.backgroundImage = "";
+    useEffect(() => {
+        document.body.style.backgroundColor = '#f0f0f0';
+        document.body.style.backgroundImage = "";
+    })
     const navigate = useNavigate();
 
     function goHome(){

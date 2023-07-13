@@ -18,14 +18,12 @@ const Loader = ({auth, isOffline, browser, day}) => {
           if (browser.name === "safari" ) {
             navigate('unsupported');
           }
+        } else {
+            BgImage(day);
         }
     }, [browser]);
 
-    return (
-        <>
-            <BgImage day={day} auth={auth}/>
-        </>
-    );
+    return;
 };
 
 export default Loader;

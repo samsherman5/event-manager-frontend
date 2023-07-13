@@ -1,8 +1,11 @@
 import FormatJSON from "../components/subcomponents/FormatJSON";
+import { useEffect } from "react";
 
 const JSON = ({address}) => {
-    document.body.style.backgroundColor = '#1F3B7C';
-    document.body.style.backgroundImage = "";
+    useEffect(() => {
+        document.body.style.backgroundColor = '#1F3B7C';
+        document.body.style.backgroundImage = "";
+    })
 
     return (
         <div className="container mt-3">
