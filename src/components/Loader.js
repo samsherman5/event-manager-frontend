@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import BgImage from './subcomponents/BgImage';
+import { BgImage } from './subcomponents/BgImage';
+
 const Loader = ({auth, isOffline, browser, day}) => {
     const navigate = useNavigate();
     useEffect(() => {
@@ -17,9 +18,14 @@ const Loader = ({auth, isOffline, browser, day}) => {
         if (browser) {
           if (browser.name === "safari" ) {
             navigate('unsupported');
+          } else {
+            BgImage(day).then((background) => {
+                document.body.style.backgroundImage = background;
+                console.log(background);
+            }).catch((error) => {
+                console.error(error);
+            });
           }
-        } else {
-            BgImage(day);
         }
     }, [browser]);
 

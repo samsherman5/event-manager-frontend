@@ -8,12 +8,15 @@ const fetchData = async (file) => {
     }
 };
 
-export default function BgImage(day) {
-    fetchData('/config/theme_image.json').then((backgroundImage) => {
-        if (backgroundImage && backgroundImage[day]) {
-            document.body.style.backgroundImage = `url(${backgroundImage[day]})`;
-        } else {
-            document.body.style.backgroundImage = "";
-        }
+export function BgImage(day) {
+    return new Promise((resolve, reject) => {
+        fetchData('/config/theme_image.json').then((backgroundImage) => {
+            if (backgroundImage && backgroundImage[day]) {
+                console.log(backgroundImage[day]);
+                resolve(`url(${backgroundImage[day]})`);
+            } else {
+                resolve("");
+            }
+        }).catch(reject);
     });
 }

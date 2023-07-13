@@ -12,7 +12,7 @@ function Main({address, day, setDay, browser}) {
   const [saveUpdate, setSaveUpdate] = useState(false); // triggers a save of events
   const [unsavedChanges, setUnsavedChanges] = useState(false); // unsaved changes
   const [navUnsavedChanges, setNavUnsavedChanges] = useState(false); // unsaved changes triggering modal
-
+  
   // Loader
   const [isOffline, setIsOffline] = useState(false);
   const [auth, setAuth] = useState(false);

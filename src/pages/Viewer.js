@@ -19,14 +19,14 @@ function Main({address, day, setDay, browser}) {
   return (
     <div className="App d-flex flex-column min-vh-100">
       <div className="mt-3">
-        <Clock size={'h1'}/>
+        <Clock size={'display-5'}/>
+        <Theme day={day}/>
       </div>
       <Loader day={day} browser={browser} auth={auth} isOffline={isOffline}/>
-      <Theme day={day}/>
       <div className="container flex-grow-1">
         <div className="row">
           <div className="col">
-            <ColumnPage viewMode={true} setAuth={setAuth} setIsOffline={setIsOffline} address={address} unsavedChanges={unsavedChanges} setUnsavedChanges={setUnsavedChanges} update={update} setSaveUpdate={setSaveUpdate} saveUpdate={saveUpdate} setUpdate={setUpdate} day={day}/>
+            <ColumnPage setDay={setDay} viewMode={true} setAuth={setAuth} setIsOffline={setIsOffline} address={address} unsavedChanges={unsavedChanges} setUnsavedChanges={setUnsavedChanges} update={update} setSaveUpdate={setSaveUpdate} saveUpdate={saveUpdate} setUpdate={setUpdate} day={day}/>
           </div>
         </div>
       </div>
