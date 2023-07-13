@@ -29,7 +29,7 @@ function Main({address, day, setDay, browser}) {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer viewMode={true}/>
     </div>
   );
 }
