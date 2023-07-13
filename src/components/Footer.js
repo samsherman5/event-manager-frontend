@@ -10,8 +10,8 @@ const Footer = ({viewMode}) => (
                             <a href="/image" className="small-tag text-muted mx-2 text-decoration-none">View Image</a>
                         </div>
                     ) : (
-                        <div className="row justify-content-center mt-2">
-                            <div className="col text-center h6 text-muted">Designed by Charley Wolf</div>
+                        <div className="row justify-content-center mt-1">
+                            <div className="col text-center h5 m-0 text-muted">Designed by Charley Wolf</div>
                         </div>
                     )}
                 </div>
