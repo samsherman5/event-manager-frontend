@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Column from './Column';
 
-const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpdate, saveUpdate, update, setUpdate, setIsOffline, address}) => {
+const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpdate, saveUpdate, update, setUpdate, setIsOffline, address, viewMode}) => {
     const [columns, setColumns] = useState([]);
     
     // add column
@@ -35,8 +35,7 @@ const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpd
             });
     };
 
-    // update events
-    useEffect(() => {
+    function updateColumns() {
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', 'day': day },
@@ -61,7 +60,16 @@ const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpd
                 console.log(error);
                 setIsOffline(true);
             });
+    }
+
+    // update events
+    useEffect(() => {
+        updateColumns();
     }, [day, update]);
+
+    if (viewMode) {
+        setInterval(updateColumns, 30000);
+    }
 
     return (
         <div>
