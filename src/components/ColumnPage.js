@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Column from './Column';
 
-const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpdate, saveUpdate, update, setUpdate, setIsOffline, address, viewMode}) => {
+const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpdate, saveUpdate, update, setUpdate, setIsOffline, address, viewMode}) => {
     const [columns, setColumns] = useState([]);
     
     // add column
@@ -62,6 +62,19 @@ const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpd
             });
     }
 
+    // VIEWER-SPECIFIC MODE ONLY
+    function updateDay(){
+        let date = new Date();
+        const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        date = date.getDay();
+        date = weekday[date];
+        if (date !== "Saturday") {
+          setDay(date);
+        } else {
+          setDay('Monday');
+        }
+    }
+
     // update events
     useEffect(() => {
         updateColumns();
@@ -69,6 +82,7 @@ const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpd
 
     if (viewMode) {
         setInterval(updateColumns, 30000);
+        setInterval(updateDay, 30000);
     }
 
     return (
