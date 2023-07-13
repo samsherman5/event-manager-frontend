@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
 
 const Image = ({day, address}) => {
     document.body.style.backgroundColor = 'white';
+    document.body.style.backgroundImage = "";
 
     return (
       <View style={styles.section}>

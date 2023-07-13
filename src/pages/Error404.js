@@ -3,6 +3,7 @@ import  { useNavigate } from 'react-router-dom';
 
 const Error404 = () =>  {
     document.body.style.backgroundColor = '#f0f0f0';
+    document.body.style.backgroundImage = "";
     const navigate = useNavigate();
 
     function goHome(){

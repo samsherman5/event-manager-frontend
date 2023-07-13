@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const Error503 = ({address}) => {
   const navigate = useNavigate();
   document.body.style.backgroundColor = '#f0f0f0';
+  document.body.style.backgroundImage = "";
 
   useEffect(() => {
     fetch (`${address}/`, {

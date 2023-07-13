@@ -16,6 +16,7 @@ function Main({address, day, setDay, browser}) {
   // Loader
   const [isOffline, setIsOffline] = useState(false);
   const [auth, setAuth] = useState(false);
+  document.body.style.backgroundColor = '#1F3B7C';
 
   return (
     <div className="App d-flex flex-column min-vh-100">

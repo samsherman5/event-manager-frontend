@@ -7,6 +7,7 @@ const Login = ({address}) => {
     const password = useRef(null);
     const [isIncorrect, setIsIncorrect] = useState(false); // If the backend responded that the psw is incorrect
     document.body.style.backgroundColor = '#f0f0f0';
+    document.body.style.backgroundImage = "";
 
     function handleSubmit(event) {
         event.preventDefault();
