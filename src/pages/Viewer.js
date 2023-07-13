@@ -18,7 +18,7 @@ function Viewer({address, day, setDay, browser}) {
     <div className="App d-flex flex-column min-vh-100">
       <div className="mt-3">
         <Clock size={'display-5'}/>
-        <div className="mt-2">
+        <div className="mt-3">
           <Theme day={day}/>
         </div>
       </div>
