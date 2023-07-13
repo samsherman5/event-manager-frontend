@@ -34,7 +34,7 @@ const ClearEvents = ({setUpdate, update, setAuth, address, setIsOffline}) => {
 
   return (
     <>
-    <button onClick={showModal} type="button" className='mx-1 nav-text btn btn-primary btn-lg action-ratio'>Clear</button>
+    <button onClick={showModal} type="button" className='mx-1 btn-primary nav-text btn btn-bluish btn-lg action-ratio'>Clear</button>
 
     <div className="modal fade" id="confirmClear" tabIndex="-1" role="dialog" aria-labelledby="unsavedChanges" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered" role="document">

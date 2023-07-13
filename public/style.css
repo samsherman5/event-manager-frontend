@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Helvetica:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 html body {
-    background-color: rgba(45, 93, 207, 0.992);
-    font-family: 'Lato', sans-serif;
+    background-color: #1F3B7C;
+    font-family: 'Helvetica', monospace;
     font-weight: 350;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .nav-text {
@@ -16,7 +18,13 @@ html body {
 }
 
 .btn-bluish {
-    background-color: rgba(45, 93, 207, 0.992) !important;
+    background-color: rgb(41, 77, 161) !important;
+    border: none !important;
+    color: white !important;
+}
+
+.btn.active {
+    background-color: rgb(26, 48, 98) !important;
 }
 
 .st-orange {
@@ -50,6 +58,8 @@ html body {
 
 .time {
     font-weight: 800 !important;
+    font-size: 20pt !important;
+    color: #00094ad2 !important;
 }
 
 .list-group { 
@@ -108,6 +118,9 @@ html body {
     opacity: 0;
     transition: opacity 0.1s ease;
     border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .column-settings:hover {
@@ -181,6 +194,10 @@ html body {
  *  Autofill
  */
 
+ .autofill-light {
+    opacity: 0.5;
+ }
+
  .organizer-nametag {
     display: flex; align-items: center;
     border-radius: 12px;
@@ -188,16 +205,14 @@ html body {
     border: none;
     color: rgba(2, 7, 40, 0.251);
     display: inline-block;
-    font-size: 12pt;
+    font-size: 20pt;
     text-align: left !important;
     position: relative;
 } 
 
 .autofill-options {
     font-size: smaller;
-    color: rgb(236, 236, 236) !important;
     text-align: left !important;
-    opacity: 0.3;
     /* margin-top: -32.5% !important; */
     z-index: 3;
 }
@@ -247,7 +262,7 @@ Weather
 .title {
     color: #f3af39;
     font-weight: 700;
-    font-size: 14pt;
+    font-size: 30pt;
 }
 
 /* PRINTABLE */
@@ -307,4 +322,10 @@ hr {
 
 .login-form label {
     font-weight: 700 !important;
+}
+
+.theme mark {
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.849);
+    color: #00094ad2;
 }

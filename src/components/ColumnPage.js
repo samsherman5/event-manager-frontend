@@ -65,7 +65,7 @@ const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpd
 
     return (
         <div>
-            <div className="d-flex flex-column flex-md-row p-4 pb-1 gap-4 pt-md-5 align-items-center justify-content-center">
+            <div className="d-flex flex-column flex-md-row gap-4 align-items-center justify-content-center">
             <div className="list-group">
                 {columns.map((column, index) => {
                     return (
@@ -75,7 +75,7 @@ const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpd
             </div>
         </div>
 
-        <div id="add-column-container" className="mt-0 pt-0 d-flex flex-column flex-md-row p-4 pb-1 gap-4 align-items-center justify-content-center">
+        <div id="add-column-container" className="mt-0 pt-0 d-flex flex-column flex-md-row pt-1 pb-1 gap-4 align-items-center justify-content-center">
             <button onClick={addColumn} className="btn btn-hover w-100 weight-500" id="add-column" type="submit">+ Add another event</button>
         </div>
       </div>

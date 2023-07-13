@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import  { useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
-const Loader = ({auth, isOffline}) => {
+import { useNavigate } from 'react-router-dom';
+import BgImage from './subcomponents/BgImage';
+const Loader = ({auth, isOffline, browser, day}) => {
     const navigate = useNavigate();
     useEffect(() => {
         if(auth) {
@@ -12,7 +13,19 @@ const Loader = ({auth, isOffline}) => {
         }
     }, [isOffline, auth]);
 
-    return <></>
+    useEffect(() => {
+        if (browser) {
+          if (browser.name === "safari" ) {
+            navigate('unsupported');
+          }
+        }
+    }, [browser]);
+
+    return (
+        <>
+            <BgImage day={day}/>
+        </>
+    );
 };
 
 export default Loader;

@@ -18,15 +18,15 @@ const UnsavedChanges = ({unsavedChanges, setNavUnsavedChanges, navUnsavedChanges
     };
   }, [unsavedChanges]);
   
-  // useEffect(() => {
-  //   if($('#unsavedChanges').length) {
-  //     if(navUnsavedChanges === true) {
-  //       $('#unsavedChanges').modal('show');
-  //     } else {
-  //       $('#unsavedChanges').modal('hide');
-  //     }
-  //   }
-  // }, [navUnsavedChanges]);
+  useEffect(() => {
+    if($('#unsavedChanges').length) {
+      if(navUnsavedChanges === true) {
+        $('#unsavedChanges').modal('show');
+      } else {
+        $('#unsavedChanges').modal('hide');
+      }
+    }
+  }, [navUnsavedChanges]);
 
   function hideModal() {
     setNavUnsavedChanges(!navUnsavedChanges);
