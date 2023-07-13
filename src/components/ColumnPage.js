@@ -58,6 +58,33 @@ const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, se
             })
             .catch((error) => {
                 console.log(error);
+                setIsOffline(true);
+            });
+    }
+
+    function viewerUpdate() {
+        const requestOptions = {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json', 'day': day },
+            credentials: 'include'
+        };
+
+        fetch(`${address}/events`, requestOptions)
+            .then((res) => {
+                if (res.status === 401) {
+                    setAuth(true);
+                    return Promise.reject(); // Reject the promise to skip to the catch block
+                } else {
+                    return res.json()
+                        .then((data) => {
+                            if (data) {
+                                setColumns(data.events);
+                            }
+                        });
+                }
+            })
+            .catch((error) => {
+                console.log(error);
             });
     }
 
@@ -80,7 +107,7 @@ const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, se
     }, [day, update]);
 
     if (viewMode) {
-        setInterval(updateColumns, 30000);
+        setInterval(viewerUpdate, 30000);
         setInterval(updateDay, 30000);
     }
 
