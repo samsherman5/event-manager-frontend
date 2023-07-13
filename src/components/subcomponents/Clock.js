@@ -36,7 +36,7 @@ const Clock = ({size}) => {
     
 
     return (
-        <h3 className={`text-white ${size} weight-650 text-center`}>{date} {time}</h3>
+        <h3 className={`text-white ${size} weight-650 text-center clock-theme`}><mark className="pt-2 pb-1">{date} {time}</mark></h3>
     );
 };
 
