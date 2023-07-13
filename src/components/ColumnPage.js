@@ -58,7 +58,6 @@ const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, se
             })
             .catch((error) => {
                 console.log(error);
-                setIsOffline(true);
             });
     }
 
