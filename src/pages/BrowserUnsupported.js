@@ -2,6 +2,7 @@
 
 const Error404 = ({browser}) =>  {
     document.body.style.backgroundColor = '#f0f0f0';
+    document.body.style.backgroundImage = "";
 
     return (
         <div className="d-flex flex-column text-center justify-content-center align-items-center" style={{ height: "100vh" }}>
