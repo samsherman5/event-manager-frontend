@@ -69,7 +69,7 @@ const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, se
             credentials: 'include'
         };
 
-        fetch(`${address}/events`, requestOptions)
+        fetch(`${address}/viewer_events`, requestOptions)
             .then((res) => {
                 if (res.status === 401) {
                     return Promise.reject(); // Reject the promise to skip to the catch block
