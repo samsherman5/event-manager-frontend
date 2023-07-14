@@ -72,7 +72,6 @@ const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, se
         fetch(`${address}/events`, requestOptions)
             .then((res) => {
                 if (res.status === 401) {
-                    setAuth(true);
                     return Promise.reject(); // Reject the promise to skip to the catch block
                 } else {
                     return res.json()
@@ -86,18 +85,15 @@ const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, se
             .catch((error) => {
                 console.log(error);
             });
-    }
 
-    // VIEWER-SPECIFIC MODE ONLY
-    function updateDay(){
         let date = new Date();
         const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
         date = date.getDay();
         date = weekday[date];
         if (date !== "Saturday") {
-          setDay(date);
+            setDay(date);
         } else {
-          setDay('Monday');
+            setDay('Monday');
         }
     }
 
@@ -108,7 +104,6 @@ const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, se
 
     if (viewMode) {
         setInterval(viewerUpdate, 30000);
-        setInterval(updateDay, 30000);
     }
 
     return (
