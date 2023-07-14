@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 
-const Weather = ({address, setAuth}) => {
+const Weather = ({address}) => {
     const [weather, setWeather] = useState([]);
 
     const [isLoading, setIsLoading] = useState(true);
@@ -11,7 +11,6 @@ const Weather = ({address, setAuth}) => {
         fetch(`${address}/weather`, {credentials: "include"})
             .then((res) => {
                 if (res.status === 401) {
-                    setAuth(true);
                     setIsOffline(true);
                     setIsLoading(false);
                     return;
@@ -53,8 +52,6 @@ const Weather = ({address, setAuth}) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="row mb-2">
                         <div className="col">
                             <div className="card">
                                 <img src={weather.tomorrow.image} alt={weather.tomorrow.desc} className="card-img-top mt-2 small-image" />
@@ -66,8 +63,6 @@ const Weather = ({address, setAuth}) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="row mb-2">
                         <div className="col">
                             <div className="card">
                                 <img src={weather.overmorrow.image} alt={weather.overmorrow.desc} className="card-img-top mt-2 small-image" />

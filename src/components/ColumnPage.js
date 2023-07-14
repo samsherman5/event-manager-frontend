@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Column from './Column';
 
-const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpdate, saveUpdate, update, setUpdate, setIsOffline, address}) => {
+const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpdate, saveUpdate, update, setUpdate, setIsOffline, address}) => {
     const [columns, setColumns] = useState([]);
     
     // add column
