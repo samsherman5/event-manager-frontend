@@ -99,7 +99,9 @@ const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, se
 
     // update events
     useEffect(() => {
-        updateColumns();
+        if(!viewMode) {
+            updateColumns();
+        }
     }, [day, update]);
 
     if (viewMode) {
