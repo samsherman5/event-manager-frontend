@@ -104,9 +104,11 @@ const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, se
         }
     }, [day, update]);
 
-    if (viewMode) {
-        setInterval(viewerUpdate, 30000);
-    }
+    useEffect(() => {
+        if (viewMode) {
+            setInterval(viewerUpdate, 30000);
+        }
+    })
 
     return (
         <div>
