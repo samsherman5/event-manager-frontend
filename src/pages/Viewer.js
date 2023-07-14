@@ -1,17 +1,14 @@
 import Theme from '../components/subcomponents/Theme';
 import { useState } from 'react';
-import ColumnPage from '../components/ColumnPage';
+import ViewerPage from '../components/dedicatedviewer/ViewerPage';
 import Loader from '../components/Loader';
 import Clock from '../components/subcomponents/Clock';
 
 function Viewer({address, day, setDay, browser}) {
-  const [update, setUpdate] = useState(false); // triggers a refresh of events
-  const [saveUpdate, setSaveUpdate] = useState(false); // triggers a save of events
-  const [unsavedChanges, setUnsavedChanges] = useState(false); // unsaved changes
 
   // Loader
-  const [isOffline, setIsOffline] = useState(false);
-  const [auth, setAuth] = useState(false);
+  const [isOffline] = useState(false);
+  const [auth] = useState(false);
   document.body.style.backgroundColor = '#1F3B7C';
 
   return (
@@ -26,7 +23,7 @@ function Viewer({address, day, setDay, browser}) {
       <div className="container flex-grow-1">
         <div className="row">
           <div className="col">
-            <ColumnPage setDay={setDay} viewMode={true} setAuth={setAuth} setIsOffline={setIsOffline} address={address} unsavedChanges={unsavedChanges} setUnsavedChanges={setUnsavedChanges} update={update} setSaveUpdate={setSaveUpdate} saveUpdate={saveUpdate} setUpdate={setUpdate} day={day}/>
+            <ViewerPage setDay={setDay} address={address} day={day}/>
           </div>
         </div>
       </div>

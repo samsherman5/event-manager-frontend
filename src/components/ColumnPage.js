@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Column from './Column';
 
-const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpdate, saveUpdate, update, setUpdate, setIsOffline, address, viewMode}) => {
+const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpdate, saveUpdate, update, setUpdate, setIsOffline, address}) => {
     const [columns, setColumns] = useState([]);
     
     // add column
@@ -62,54 +62,11 @@ const ColumnPage = ({day, setDay, setAuth, unsavedChanges, setUnsavedChanges, se
             });
     }
 
-    function viewerUpdate() {
-        const requestOptions = {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json', 'day': day },
-            credentials: 'include'
-        };
-
-        fetch(`${address}/viewer_events`, requestOptions)
-            .then((res) => {
-                if (res.status === 401) {
-                    return Promise.reject(); // Reject the promise to skip to the catch block
-                } else {
-                    return res.json()
-                        .then((data) => {
-                            if (data) {
-                                setColumns(data.events);
-                            }
-                        });
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-
-        let date = new Date();
-        const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-        date = date.getDay();
-        date = weekday[date];
-        if (date !== "Saturday") {
-            setDay(date);
-        } else {
-            setDay('Monday');
-        }
-    }
-
     // update events
     useEffect(() => {
-        if(!viewMode) {
-            updateColumns();
-        }
+        updateColumns();
     }, [day, update]);
 
-    useEffect(() => {
-        if (viewMode) {
-            viewerUpdate();
-            setInterval(viewerUpdate, 30000);
-        }
-    })
 
     return (
         <div>
