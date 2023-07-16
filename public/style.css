@@ -150,6 +150,28 @@ html body {
     background-color: rgb(243, 243, 243) !important;
 }
 
+.column-activated{
+    animation: pulse 4s infinite;
+}
+
+/* pulsing animation for column*/
+
+@keyframes pulse {
+    0%{
+        background-color: rgb(243, 243, 243);
+    }
+
+    50%{
+        background-color: rgb(99, 194, 118);
+        border-color: rgba(65, 192, 90, 0.867);
+        box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
+    }
+
+    100%{
+        background-color: rgb(243, 243, 243);
+    }
+}
+
 [contenteditable] {
     -webkit-user-modify: read-write-plaintext-only;
   }
