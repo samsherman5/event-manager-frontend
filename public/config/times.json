@@ -1,7 +1,7 @@
 {
-    "Default": ["6:30PM", "7:00PM", "7:30PM", "8:00PM"],
-    "Sunday": ["6:45PM","7:00PM", "7:30PM", "8:00PM"],
-    "Friday": ["12:45PM","1:00PM","1:30PM","2:00PM"],
+    "Default": ["After Dinner","6:30PM", "7:00PM", "7:30PM", "8:00PM"],
+    "Sunday": ["After Dinner","6:45PM","7:00PM", "7:30PM", "8:00PM"],
+    "Friday": ["After Dinner","12:45PM","1:00PM","1:30PM","2:00PM"],
     "//IMPORTANT_NOTES": "The default list must be called 'Default' and all the times should end in PM/AM",
     "//EXAMPLE": ["12:45PM", "1:00PM", "2:00PM"]
 }
