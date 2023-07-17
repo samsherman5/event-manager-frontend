@@ -3,6 +3,9 @@
 #production
 /build
 
+#environmental
+.env
+
 #testng
 /coverage
 
