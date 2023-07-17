@@ -21,7 +21,6 @@ const Loader = ({auth, isOffline, browser, day}) => {
           } else {
             BgImage(day).then((background) => {
                 document.body.style.backgroundImage = background;
-                console.log(background);
             }).catch((error) => {
                 console.error(error);
             });

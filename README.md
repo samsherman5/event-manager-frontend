@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# Event Manager (Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the react frontend for the event management system currently in use at the [SummerTech](https://summertech.net/) coding camp.
+## Features
 
-## Available Scripts
+- Viewer-mode to view the day's events on the TV
+- Configuration files, to configure the
+  - Counselor list, for the autofill feature
+  - Common events list, for the autofill feature
+  - Theme list, to configure the day's theme & background image
+  - Times list, to configure the event times for the day
+- Easy editing features so you can easily update events for any day Sunday through Friday
+- Export JSON (Import feature is on the way)
+- View as PDF for the week & day to allow for easy printing
+- Login system to prevent unauthorized access
 
-In the project directory, you can run:
 
-### `npm start`
+## Used By
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project is used by the following companies:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [SummerTech](https://summertech.net)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## FAQ
 
-### `npm run build`
+#### Why won't this work on safari (computer version)?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Safari is very strict with cross-site cookies, and the backend and frontend are hosted seperately on different domains, so it will only work if you go to **Safari > Settings > Privacy > Prevent cross-site tracking**, and disable it. Please note this may have unintended side effects, so it is best to use another browser.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Why won't this work on mobile or another browser?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+It is probably also a cross-site tracking issue or browser restrictions. It has only been tested/used on Google Chrome and Microsoft Edge on PC/Mac.
 
-### `npm run eject`
+#### Why does it say the backend is offline, error 503?
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+If you are cloning this and hosting it, you must also host the backend. Please note this must be configured aswell, so please visit the [backend's github](https://github.com/charleywolf/event-manager-backend).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To deploy this project, run:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`npm run build`
 
-## Learn More
+Then, set the build directory of your project to `/build`.
+## Environment Variables
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To run this project, you will need to add the following environment variable to your .env file
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`REACT_APP_BACKEND_ADDRESS`
 
-### Code Splitting
+This is the address for your [backend](https://github.com/charleywolf/event-manager-backend), which you also must run to use this. Make sure the link you use *does not end in a slash*, and you must include the https/http at the start.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Configuration
 
-### Analyzing the Bundle Size
+To configure the project, head to the `/public/config` directory and edit the configurations to your choosing. Descriptions of each config file are below.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### events.csv
 
-### Making a Progressive Web App
+A CSV file where you can insert commonly used events, each on a new line for the title autofill feature.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### staff.csv
 
-### Advanced Configuration
+A CSV file where you can insert organizer/staff name's for the organizer autofill feature. Each name on a new line.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### theme_image.json
 
-### Deployment
+Set the background image for each day, with the format being
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+"Monday": "https://img.com/image.png"`,
+"Tuesday": null
+```
 
-### `npm run build` fails to minify
+You must include all the days (Mon-Sun) for it to work.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### themes.json
+
+Set the theme of each day, with the format:
+
+```
+"Tuesday": "Taco"
+"Wednesday": "null"
+```
+
+This would display as Taco Tuesday on Tuesday, and just Wednesday on Wednesday. Once again, you must include all days (Mon-Sun) for it to work.
+
+#### times.json
+
+Set the available event times in the dropdown for each day. Format is below:
+
+```
+"Default": ["1:00 PM", "2:00 PM", "3:00 PM"]
+"Sunday": ["9:00 AM", "10:00 AM", "11:00 AM"]
+```
+
+Default is the default time, and add a day's name for the exceptions (on Sunday the times will display differently in this example).
+
+#### categories.json
+
+Coming soon...
+## Authors
+
+ - [@charleywolf](https://github.com/charleywolf)
+ - [@samsherman5](https://github.com/samsherman5)
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
