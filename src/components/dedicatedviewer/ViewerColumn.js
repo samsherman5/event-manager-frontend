@@ -1,7 +1,30 @@
+import { useCallback, useEffect, useState } from "react";
+
 const ViewerColumn = ({organizers, time, _id, title}) => {
+    const [isActivated, setIsActivated] = useState("");
+    const active = useCallback(() =>{
+        const now = new Date();
+        const [hours, minutes, period] = time.split(/:|\s/);
+        const timeDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), period === 'PM' ? parseInt(hours) + 12 : parseInt(hours), parseInt(minutes));
+        const fifteenMinutesLater = new Date(timeDate.getTime() + 15 * 60000);
+        if(now <= fifteenMinutesLater && now >= timeDate) {
+            return "column-activated";
+        }
+        return "";
+        
+    }, [time]);
+
+    useEffect(() => {
+        setIsActivated(active());
+        const timer = setInterval(() => {
+            setIsActivated(active());
+        }, 60000);
+        return () => clearInterval(timer);
+    },[time, active])
+
     return (
         
-        <div id={_id} className="list-group-item d-flex gap-2 p-2 st-backgroundblue" aria-current="true">
+        <div id={_id} className={`${isActivated} list-group-item d-flex gap-2 p-2 st-backgroundblue`} aria-current="true">
             <div className="d-flex gap-2 w-100 justify-content-between">
                 <div className="flex-grow-1">
                     <div className="d-flex flex-fill align-items-center">
