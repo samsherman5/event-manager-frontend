@@ -17,12 +17,7 @@ function App() {
   const { detect } = require('detect-browser');
   const browser = detect();
 
-  var address;
-  if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-    address = 'http://localhost:8080';
-  } else {
-    address = 'https://event-manager-backend-d7uu.onrender.com';
-  }
+  const address = process.env.REACT_APP_BACKEND_ADDRESS;
 
   if(day === 'None'){
     let date = new Date();
