@@ -1,21 +1,18 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const ViewerColumn = ({organizers, time, _id, title}) => {
     const [isActivated, setIsActivated] = useState("");
-    function active() {
-        console.log(time);
+    const active = useCallback(() =>{
         const now = new Date();
         const [hours, minutes, period] = time.split(/:|\s/);
         const timeDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), period === 'PM' ? parseInt(hours) + 12 : parseInt(hours), parseInt(minutes));
         const fifteenMinutesLater = new Date(timeDate.getTime() + 15 * 60000);
-        console.log(timeDate);
-        console.log(fifteenMinutesLater);
         if(now <= fifteenMinutesLater && now >= timeDate) {
             return "column-activated";
         }
         return "";
         
-    }
+    }, [time]);
 
     useEffect(() => {
         setIsActivated(active());
@@ -23,7 +20,7 @@ const ViewerColumn = ({organizers, time, _id, title}) => {
             setIsActivated(active());
         }, 60000);
         return () => clearInterval(timer);
-    },[])
+    },[time, active])
 
     return (
         
