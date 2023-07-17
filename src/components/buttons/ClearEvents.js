@@ -12,7 +12,7 @@ const ClearEvents = ({setUpdate, update, setAuth, address, setIsOffline}) => {
 
     function clear_events () {
         const requestOptions = {
-            method: 'POST',
+            method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             credentials: "include"
         };

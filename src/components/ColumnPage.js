@@ -18,7 +18,7 @@ const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpd
             }),
             credentials: "include"
         };
-        fetch(`${address}/events`, requestOptions)
+        fetch(`${address}/create_event`, requestOptions)
             .then((res) => {
                 if (res.status === 401) {
                     setAuth(true);

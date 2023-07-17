@@ -15,7 +15,7 @@ const Column = ({organizer, unsavedChanges, saveUpdate, setSaveUpdate, setUnsave
 
     function deleteColumn() {
         const requestOptions = {
-            method: 'POST',
+            method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 _id: _id
@@ -38,7 +38,7 @@ const Column = ({organizer, unsavedChanges, saveUpdate, setSaveUpdate, setUnsave
 
     function saveColumn() {
         const requestOptions = {
-            method: 'POST',
+            method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 _id: _id,
