@@ -9,8 +9,15 @@ const ViewerPage = ({day, setDay, address}) => {
 
     useEffect(() => {
         const timer = setInterval(() => {
-          setShowWeatherView((prevShowWeatherView) => !prevShowWeatherView);
-        }, 10000);
+            setShowWeatherView(false);
+          }, 6600);
+          
+          setTimeout(() => {
+            clearInterval(timer);
+            setInterval(() => {
+              setShowWeatherView((prevShowWeatherView) => !prevShowWeatherView);
+            }, 13400);
+          }, 13400);
       
         // Clean up the interval when the component unmounts or the dependency changes
         return () => clearInterval(timer);
