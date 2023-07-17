@@ -1,6 +1,8 @@
-# Event Manager (Frontend)
+# event-manager-frontend
 
 This is the react frontend for the event management system currently in use at the [SummerTech](https://summertech.net/) coding camp.
+
+
 ## Features
 
 - Viewer-mode to view the day's events on the TV
