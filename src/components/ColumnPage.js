@@ -74,7 +74,7 @@ const ColumnPage = ({day, setAuth, unsavedChanges, setUnsavedChanges, setSaveUpd
             <div className="list-group">
                 {columns.map((column, index) => {
                     return (
-                        <Column setAuth={setAuth} key={index} setIsOffline={setIsOffline} address={address} unsavedChanges={unsavedChanges} setUnsavedChanges={setUnsavedChanges} setSaveUpdate={setSaveUpdate} saveUpdate={saveUpdate} setUpdate={setUpdate} update={update} _id={column._id} title={column.title} organizer={column.organizer} day={day} time={column.time}></Column>
+                        <Column setAuth={setAuth} key={column._id} setIsOffline={setIsOffline} address={address} unsavedChanges={unsavedChanges} setUnsavedChanges={setUnsavedChanges} setSaveUpdate={setSaveUpdate} saveUpdate={saveUpdate} setUpdate={setUpdate} update={update} _id={column._id} title={column.title} organizer={column.organizer} day={day} time={column.time}></Column>
                     );
                 })}
             </div>
