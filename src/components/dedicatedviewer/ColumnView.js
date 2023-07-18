@@ -54,7 +54,7 @@ const ColumnViewer = ({day, setDay, address}) => {
             <div className="list-group">
                 {columns.map((column, index) => {
                     return (
-                        <ViewerColumn key={index} _id={column._id} title={column.title} organizers={column.organizer} time={column.time}/>
+                        <ViewerColumn key={column._id} _id={column._id} title={column.title} organizers={column.organizer} time={column.time}/>
                     );
                 })}
             </div>
