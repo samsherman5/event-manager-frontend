@@ -2,7 +2,6 @@
 
 This is the react frontend for the event management system currently in use at the [SummerTech](https://summertech.net/) coding camp.
 
-
 ## Features
 
 - Viewer-mode to view the day's events on the TV
@@ -16,13 +15,11 @@ This is the react frontend for the event management system currently in use at t
 - View as PDF for the week & day to allow for easy printing
 - Login system to prevent unauthorized access
 
-
 ## Used By
 
 This project is used by the following companies:
 
 - [SummerTech](https://summertech.net)
-
 
 ## FAQ
 
@@ -45,13 +42,18 @@ To deploy this project, run:
 `npm run build`
 
 Then, set the build directory of your project to `/build`.
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variable to your .env file
 
 `REACT_APP_BACKEND_ADDRESS`
 
-This is the address for your [backend](https://github.com/charleywolf/event-manager-backend), which you also must run to use this. Make sure the link you use *does not end in a slash*, and you must include the https/http at the start.
+This is the address for your [backend](https://github.com/charleywolf/event-manager-backend), which you also must run to use this. Make sure the link you use _does not end in a slash_, and you must include the https/http at the start.
+
+`REACT_APP_DEPLOYMENT_URL`
+
+This is the address of your frontend, and it must match in the backend to allow requests. ex: `REACT_APP_DEPLOYMENT_URL=https://st-events.vercel.app/`
 
 ## Configuration
 
@@ -101,9 +103,10 @@ Default is the default time, and add a day's name for the exceptions (on Sunday 
 #### categories.json
 
 Coming soon...
+
 ## Authors
 
- - [@charleywolf](https://github.com/charleywolf)
- - [@samsherman5](https://github.com/samsherman5)
+- [@charleywolf](https://github.com/charleywolf)
+- [@samsherman5](https://github.com/samsherman5)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
