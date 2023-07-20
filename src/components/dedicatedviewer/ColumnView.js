@@ -12,7 +12,7 @@ const ColumnViewer = ({ day, setDay, address }) => {
       headers: {
         "Content-Type": "application/json",
         day: day,
-        "x-vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
+        "vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
       },
       credentials: "include",
     };

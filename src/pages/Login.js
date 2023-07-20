@@ -23,7 +23,7 @@ const Login = ({ address }) => {
       }),
       headers: {
         "Content-Type": "application/json",
-        "x-vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
+        "vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
       },
       credentials: "include",
       withCredentials: true,

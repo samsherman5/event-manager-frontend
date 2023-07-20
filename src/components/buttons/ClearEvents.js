@@ -14,7 +14,7 @@ const ClearEvents = ({ setUpdate, update, setAuth, address, setIsOffline }) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "x-vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
+        "vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
       },
       credentials: "include",
     };

@@ -32,7 +32,7 @@ const Column = ({
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "x-vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
+        "vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
       },
       body: JSON.stringify({
         _id: _id,
@@ -58,7 +58,7 @@ const Column = ({
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "x-vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
+        "vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
       },
       body: JSON.stringify({
         _id: _id,

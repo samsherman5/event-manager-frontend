@@ -22,7 +22,7 @@ const ColumnPage = ({
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
+        "vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
       },
       body: JSON.stringify({
         title: "Event Name",
@@ -55,7 +55,7 @@ const ColumnPage = ({
       headers: {
         "Content-Type": "application/json",
         day: day,
-        "x-vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
+        "vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
       },
       credentials: "include",
     };
