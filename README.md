@@ -53,7 +53,7 @@ This is the address for your [backend](https://github.com/charleywolf/event-mana
 
 `REACT_APP_DEPLOYMENT_URL`
 
-This is the address of your frontend, and it must match in the backend to allow requests. ex: `REACT_APP_DEPLOYMENT_URL=https://st-events.vercel.app/`
+This is the address of your frontend, and it must match in the backend to allow requests. ex: `REACT_APP_DEPLOYMENT_URL=https://st-events.vercel.app`
 
 ## Configuration
 
