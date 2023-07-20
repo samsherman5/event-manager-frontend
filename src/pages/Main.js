@@ -20,7 +20,7 @@ function Main({ address, day, setDay, browser }) {
 
   return (
     <>
-      <div className="App d-flex flex-column min-vh-100">
+      <div className="App d-flex flex-column">
         <UnsavedChanges
           unsavedChanges={unsavedChanges}
           navUnsavedChanges={navUnsavedChanges}
@@ -66,8 +66,8 @@ function Main({ address, day, setDay, browser }) {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }
