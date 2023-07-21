@@ -1,20 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import ViewerColumn from './ViewerColumn';
 
-const ColumnViewer = ({day, setDay, address, events}) => {
+const ColumnViewer = ({events}) => {
     return (
-        <div>
-            <div className="d-flex flex-column flex-md-row gap-4 align-items-center justify-content-center">
-            <div className="list-group">
+      <div>
+        <div className="d-flex flex-column flex-md-row gap-4 align-items-center justify-content-center">
+          <div className="list-group">
                 {events.map((column, index) => {
                     return (
                         <ViewerColumn key={index} _id={column._id} title={column.title} organizers={column.organizer} time={column.time}/>
                     );
                 })}
-            </div>
+          </div>
         </div>
       </div>
-    );
+  );
 };
 
 export default ColumnViewer;

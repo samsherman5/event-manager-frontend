@@ -10,31 +10,37 @@ import BrowserUnsupported from './pages/BrowserUnsupported';
 import { Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [day, setDay] = useState("None");
   const { detect } = require('detect-browser');
   const browser = detect();
 
-  var address;
-  if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-    address = 'http://localhost:8080';
-  } else {
-    address = 'https://event-manager-backend-d7uu.onrender.com';
-  }
+  const address = process.env.REACT_APP_BACKEND_ADDRESS;
 
-  if(day === 'None'){
-    let date = new Date();
+  useEffect(() => {
+    const now = new Date();
+    const timeUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1) - now;
+    setTimeout(() => {
+      const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+      const currentDay = weekday[now.getDay()];
+      if (currentDay !== day) {
+        setDay(currentDay);
+      }
+    }, timeUntilMidnight);
+  }, [day]);
+
+  if (day === 'None') {
+    const now = new Date();
     const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-    date = date.getDay();
-    date = weekday[date];
-    if (date !== "Saturday") {
-      setDay(date);
+    const currentDay = weekday[now.getDay()];
+    if (currentDay !== "Saturday") {
+      setDay(currentDay);
     } else {
       setDay('Monday');
     }
-  } 
+  }
 
   return (
     <Routes>

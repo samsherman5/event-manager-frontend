@@ -1,7 +1,26 @@
+import { useCallback, useEffect, useState } from "react";
+
 const ViewerColumn = ({organizers, time, _id, title}) => {
+    const [isActivated, setIsActivated] = useState("");
+    const active = useCallback(() =>{
+        const now = new Date();
+        const [hours, minutes, period] = time.split(/:|\s*(?=AM|PM)\s*/);
+        const timeDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), period === 'PM' ? parseInt(hours) + 12 : parseInt(hours), parseInt(minutes));
+        const fifteenMinutesLater = new Date(timeDate.getTime() + 15 * 60000);
+        return now <= fifteenMinutesLater && now >= timeDate;
+    }, [time]);
+
+    useEffect(() => {
+        setIsActivated(active());
+        const timer = setInterval(() => {
+            setIsActivated(active());
+        }, 60000);
+        return () => clearInterval(timer);
+    },[time, active])
+
     return (
         
-        <div id={_id} className="list-group-item d-flex gap-2 p-2 st-backgroundblue" aria-current="true">
+        <div id={_id} className={`${isActivated?"column-activated":""} list-group-item d-flex gap-2 p-2 st-backgroundblue`} aria-current="true">
             <div className="d-flex gap-2 w-100 justify-content-between">
                 <div className="flex-grow-1">
                     <div className="d-flex flex-fill align-items-center">
@@ -19,9 +38,9 @@ const ViewerColumn = ({organizers, time, _id, title}) => {
                 </div>
                 <div className="flex-grow-0 d-flex align-items-center">
                     <div className="d-flex">
-                    {organizers.map((item) => {
+                    {organizers.map((item, index) => {
                         return (
-                            <div className="col-auto p-0 mt-0 me-1">
+                            <div key={index} className="col-auto p-0 mt-0 me-1">
                                 <div className="d-inline-flex align-items-center justify-content-center py-1 px-2 w-auto text-nowrap mt-0 organizer-nametag">
                                     <p
                                         spellCheck={false}

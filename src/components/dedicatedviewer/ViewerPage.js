@@ -23,7 +23,8 @@ const ViewerPage = ({day, setDay, address}) => {
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', 'day': day },
-            credentials: 'include'
+            credentials: 'include',
+            "vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL
         };
 
         fetch(`${address}/viewer_events`, requestOptions)
