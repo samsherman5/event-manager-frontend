@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import OtherView from './OtherView';
 import ColumnView from './ColumnView';
 import WeatherView from './WeatherView';
 import { useEffect, useState } from 'react';
