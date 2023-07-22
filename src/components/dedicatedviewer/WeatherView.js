@@ -17,6 +17,7 @@ const Weather = ({ address }) => {
       credentials: "include",
     })
       .then((res) => {
+        console.log(res);
         if (res.status === 401) {
           setIsOffline(true);
           setIsLoading(false);
