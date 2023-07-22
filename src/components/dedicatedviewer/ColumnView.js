@@ -68,6 +68,7 @@ const ColumnViewer = ({ day, setDay, address }) => {
                 key={index}
                 _id={column._id}
                 title={column.title}
+                tagline={column.tagline}
                 organizers={column.organizer}
                 time={column.time}
               />

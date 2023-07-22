@@ -50,7 +50,7 @@ const Weather = ({ address }) => {
         <>
           <div className="row mb-2">
             <div className="col">
-              <div className="card">
+              <div className="card border-0 shadow">
                 <img
                   src={weather.today.image}
                   alt={weather.today.desc}
@@ -65,7 +65,7 @@ const Weather = ({ address }) => {
               </div>
             </div>
             <div className="col">
-              <div className="card">
+              <div className="card border-0 shadow">
                 <img
                   src={weather.tomorrow.image}
                   alt={weather.tomorrow.desc}
@@ -80,7 +80,7 @@ const Weather = ({ address }) => {
               </div>
             </div>
             <div className="col">
-              <div className="card">
+              <div className="card border-0 shadow">
                 <img
                   src={weather.overmorrow.image}
                   alt={weather.overmorrow.desc}
