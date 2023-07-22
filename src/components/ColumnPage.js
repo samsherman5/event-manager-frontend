@@ -29,6 +29,7 @@ const ColumnPage = ({
         organizer: ["Organizer"],
         time: "6:30PM",
         tagline: "Tagline",
+        location: "Location",
         day: day,
       }),
       credentials: "include",
@@ -108,6 +109,7 @@ const ColumnPage = ({
                 day={day}
                 tagline={column.tagline}
                 time={column.time}
+                location={column.location}
               ></Column>
             );
           })}
