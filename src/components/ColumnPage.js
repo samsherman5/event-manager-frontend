@@ -28,6 +28,7 @@ const ColumnPage = ({
         title: "Event Name",
         organizer: ["Organizer"],
         time: "6:30PM",
+        tagline: "Tagline",
         day: day,
       }),
       credentials: "include",
@@ -105,6 +106,7 @@ const ColumnPage = ({
                 title={column.title}
                 organizer={column.organizer}
                 day={day}
+                tagline={column.tagline}
                 time={column.time}
               ></Column>
             );

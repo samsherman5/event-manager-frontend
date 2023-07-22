@@ -8,7 +8,7 @@ const ColumnViewer = ({events}) => {
           <div className="list-group">
                 {events.map((column, index) => {
                     return (
-                        <ViewerColumn key={index} _id={column._id} title={column.title} organizers={column.organizer} time={column.time}/>
+                        <ViewerColumn key={index} _id={column._id} title={column.title} tagline={column.tagline} organizers={column.organizer} time={column.time}/>
                     );
                 })}
           </div>

@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Organizers from "./subcolumn/Organizers";
 import Time from "./subcolumn/Time";
 import Title from "./subcolumn/Title";
+import Tagline from "./subcolumn/Tagline";
 
 const Column = ({
   organizer,
@@ -19,11 +20,13 @@ const Column = ({
   address,
   day,
   title,
+  tagline,
 }) => {
   // States & Refs
   const [organizers, setOrganizers] = useState(organizer); // For exiting input
   const titleRef = useRef(null);
   const timeRef = useRef(null);
+  const taglineRef = useRef(null);
 
   // ----------------------------------------
 
@@ -65,6 +68,7 @@ const Column = ({
         title: titleRef.current.textContent,
         organizer: organizers,
         time: timeRef.current.textContent,
+        tagline: taglineRef.current.textContent,
         day: day,
       }),
       credentials: "include",
@@ -100,7 +104,7 @@ const Column = ({
   return (
     <div
       id={_id}
-      className="list-group-item d-flex gap-2 p-2 st-backgroundblue"
+      className="list-group-item d-flex border-0 shadow gap-2 p-2 st-backgroundblue"
       aria-current="true"
     >
       <div className="d-flex gap-2 w-100 justify-content-between">
@@ -119,6 +123,12 @@ const Column = ({
               setUnsavedChanges={setUnsavedChanges}
               title={title}
               titleRef={titleRef}
+            />
+            <Tagline
+              unsavedChanges={unsavedChanges}
+              setUnsavedChanges={setUnsavedChanges}
+              tagline={tagline}
+              taglineRef={taglineRef}
             />
           </div>
         </div>

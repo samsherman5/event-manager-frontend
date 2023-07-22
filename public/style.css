@@ -73,7 +73,14 @@ html body {
 
 .time {
   font-weight: 800 !important;
-  font-size: 20pt !important;
+  font-size: 24pt !important;
+  color: #00094ad2 !important;
+}
+
+.tagline {
+  font-weight: 100 !important;
+  font-size: 12pt !important;
+  font-style: italic;
   color: #00094ad2 !important;
 }
 
