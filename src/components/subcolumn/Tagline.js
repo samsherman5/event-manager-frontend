@@ -23,7 +23,7 @@ const Tagline = ({
         onKeyDown={handleKeyDown}
         contentEditable={true}
         suppressContentEditableWarning={true}
-        className="d-inline editable-content m-0 p-0"
+        className="d-inline editable-content tagline m-0 p-0"
       >
         {tagline}
       </p>

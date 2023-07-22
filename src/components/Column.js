@@ -104,7 +104,7 @@ const Column = ({
   return (
     <div
       id={_id}
-      className="list-group-item d-flex gap-2 p-2 st-backgroundblue"
+      className="list-group-item d-flex border-0 shadow gap-2 p-2 st-backgroundblue"
       aria-current="true"
     >
       <div className="d-flex gap-2 w-100 justify-content-between">
