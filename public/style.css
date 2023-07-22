@@ -300,6 +300,12 @@ Weather
   font-size: 30pt;
 }
 
+.location {
+  color: #00094ad2;
+  font-weight: 100;
+  font-size: 12pt;
+}
+
 /* PRINTABLE */
 
 hr {

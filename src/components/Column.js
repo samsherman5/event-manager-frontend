@@ -4,6 +4,7 @@ import Organizers from "./subcolumn/Organizers";
 import Time from "./subcolumn/Time";
 import Title from "./subcolumn/Title";
 import Tagline from "./subcolumn/Tagline";
+import Location from "./subcolumn/Location";
 
 const Column = ({
   organizer,
@@ -20,6 +21,7 @@ const Column = ({
   address,
   day,
   title,
+  location,
   tagline,
 }) => {
   // States & Refs
@@ -27,6 +29,7 @@ const Column = ({
   const titleRef = useRef(null);
   const timeRef = useRef(null);
   const taglineRef = useRef(null);
+  const locationRef = useRef(null);
 
   // ----------------------------------------
 
@@ -69,6 +72,7 @@ const Column = ({
         organizer: organizers,
         time: timeRef.current.textContent,
         tagline: taglineRef.current.textContent,
+        location: locationRef.current.textContent,
         day: day,
       }),
       credentials: "include",
@@ -123,6 +127,12 @@ const Column = ({
               setUnsavedChanges={setUnsavedChanges}
               title={title}
               titleRef={titleRef}
+            />
+            <Location
+              unsavedChanges={unsavedChanges}
+              setUnsavedChanges={setUnsavedChanges}
+              location={location}
+              locationRef={locationRef}
             />
             <Tagline
               unsavedChanges={unsavedChanges}
