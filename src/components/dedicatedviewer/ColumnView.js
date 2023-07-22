@@ -7,7 +7,6 @@ const ColumnViewer = ({ day, setDay, address }) => {
   const [columns, setColumns] = useState([]);
 
   function viewerUpdate() {
-    console.log(process.env.REACT_APP_DEPLOYMENT_URL);
     const requestOptions = {
       method: "GET",
       headers: {
