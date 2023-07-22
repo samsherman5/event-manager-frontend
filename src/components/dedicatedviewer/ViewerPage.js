@@ -2,11 +2,13 @@
 import ColumnView from './ColumnView';
 import WeatherView from './WeatherView';
 import { useEffect, useState } from 'react';
+import config from '../../config/viewer_config.json';
 
 const ViewerPage = ({day, setDay, address}) => {
-    const[pages, setPages] = useState([{component: <WeatherView />, time: 3000}]);
     const [currentComponent, setCurrentComponent] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [pages, setPages] = useState([{component: <WeatherView />, time: config.weatherTime}]);
+
 
     useEffect(() => {
         if (pages.length > 0) {
@@ -40,7 +42,7 @@ const ViewerPage = ({day, setDay, address}) => {
                         .then((data) => {
                             if (data) {
                                 const groupedEvents = data.events.reduce((acc, curr, index) => {
-                                  if (index % 4 === 0) acc.push([]);
+                                  if (index % config.eventsPerPage === 0) acc.push([]);
                                   acc[acc.length - 1].push(curr);
                                   return acc;
                                 }, []);
@@ -48,7 +50,7 @@ const ViewerPage = ({day, setDay, address}) => {
                                 const newpages = [...pages, ...groupedEvents.map((group, index) => {
                                     return {
                                         component: <ColumnView key={index} events={group} />,
-                                        time: 5000
+                                        time: config.eventsTime
                                     } 
                                 })];
                                 setPages(newpages);
