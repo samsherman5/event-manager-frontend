@@ -22,9 +22,13 @@ const ViewerPage = ({day, setDay, address}) => {
         //create code that given the list of events will create ColumnView components and put them in the pages array
         const requestOptions = {
             method: 'GET',
-            headers: { 'Content-Type': 'application/json', 'day': day },
+            headers: { 
+                'Content-Type': 'application/json',
+                'day': day,
+                "vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
+            },
             credentials: 'include',
-            "vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL
+            
         };
 
         fetch(`${address}/viewer_events`, requestOptions)
