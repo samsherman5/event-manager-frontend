@@ -9,6 +9,7 @@ const Weather = ({ address }) => {
 
   useEffect(() => {
     fetch(`${address}/weather`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
         "vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
