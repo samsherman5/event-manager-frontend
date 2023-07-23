@@ -94,7 +94,7 @@ const ColumnPage = ({
             return (
               <Column
                 setAuth={setAuth}
-                key={index}
+                key={column._id}
                 setIsOffline={setIsOffline}
                 address={address}
                 unsavedChanges={unsavedChanges}
