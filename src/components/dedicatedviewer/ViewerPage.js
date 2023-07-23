@@ -23,42 +23,50 @@ const ViewerPage = ({ day, setDay, address }) => {
 
   useEffect(() => {
     //create code that given the list of events will create ColumnView components and put them in the pages array
-    const requestOptions = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        day: day,
-        "vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
-      },
-      credentials: "include",
-    };
+    const fetchEvents = () => {
+        const requestOptions = {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              day: day,
+              "vercel-deployment-url": process.env.REACT_APP_DEPLOYMENT_URL,
+            },
+            credentials: "include",
+          };
+      
+          fetch(`${address}/viewer_events`, requestOptions).then((res) => {
+            if (res.status === 401) {
+              return Promise.reject(); // Reject the promise to skip to the catch block
+            } else {
+              return res.json().then((data) => {
+                if (data) {
+                  const groupedEvents = data.events.reduce((acc, curr, index) => {
+                    if (index % config.eventsPerPage === 0) acc.push([]);
+                    acc[acc.length - 1].push(curr);
+                    return acc;
+                  }, []);
+      
+                  const newpages = [
+                    ...pages,
+                    ...groupedEvents.map((group, index) => {
+                      return {
+                        component: <ColumnView key={index} events={group} />,
+                        time: config.eventsTime,
+                      };
+                    }),
+                  ];
+                  setPages(newpages);
+                }
+              });
+            }
+          });
+    }
 
-    fetch(`${address}/viewer_events`, requestOptions).then((res) => {
-      if (res.status === 401) {
-        return Promise.reject(); // Reject the promise to skip to the catch block
-      } else {
-        return res.json().then((data) => {
-          if (data) {
-            const groupedEvents = data.events.reduce((acc, curr, index) => {
-              if (index % config.eventsPerPage === 0) acc.push([]);
-              acc[acc.length - 1].push(curr);
-              return acc;
-            }, []);
+    fetchEvents();
 
-            const newpages = [
-              ...pages,
-              ...groupedEvents.map((group, index) => {
-                return {
-                  component: <ColumnView key={index} events={group} />,
-                  time: config.eventsTime,
-                };
-              }),
-            ];
-            setPages(newpages);
-          }
-        });
-      }
-    });
+    const intervalId = setInterval(fetchEvents, 30000);
+
+    return () => clearInterval(intervalId);
   }, [day]);
 
   return (
