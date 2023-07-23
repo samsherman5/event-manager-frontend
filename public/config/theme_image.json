@@ -1,9 +1,9 @@
 {
     "Sunday":null,
-    "Monday": "https://i.ibb.co/Yby9hHd/Hawaii-Night.jpg",
-    "Tuesday": "https://i.ibb.co/yPjcd44/Spooky.jpg",
-    "Wednesday":"https://i.ibb.co/Bz8wWTv/Gray-Stars.webp",
-    "Thursday":"https://i.ibb.co/HXk9dfC/wacky.jpg",
+    "Monday": "https://ibb.co/MPJN4FY",
+    "Tuesday": "https://ibb.co/4T4K44y",
+    "Wednesday":"https://ibb.co/YQ8n3Xw",
+    "Thursday":"https://ibb.co/J3TKC6S",
     "Friday":null,
     "//IMPORTANT_INFO": [
         "The image url must be an image url, it has to end in .png, .jpeg, etc",
@@ -15,7 +15,9 @@
         "Aloha - https://i.ibb.co/Yby9hHd/Hawaii-Night.jpg",
         "Spooky - https://i.ibb.co/yPjcd44/Spooky.jpg",
         "Wacky - https://i.ibb.co/HXk9dfC/wacky.jpg",
-        "Gray - https://i.ibb.co/Bz8wWTv/Gray-Stars.webp"  
+        "Gray - https://i.ibb.co/Bz8wWTv/Gray-Stars.webp",
+        "Superhero - https://ibb.co/MPJN4FY",
+        "https://ibb.co/4T4K44y https://ibb.co/YQ8n3Xw https://ibb.co/J3TKC6S"
         
 
     ]
