@@ -36,7 +36,7 @@ const Weather = ({ address }) => {
   }, [address]);
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 pt-5">
       {isOffline ? (
         <div className="row mb-2">
           <p className="text-white">
@@ -55,13 +55,15 @@ const Weather = ({ address }) => {
                 <img
                   src={weather.today.image}
                   alt={weather.today.desc}
-                  className="mt-2 card-img-top small-image"
+                  className="mt-2 card-img-top small-image mx-auto"
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{weather.today.day}</h5>
-                  <p className="card-text">{weather.today.high}° High</p>
-                  <p className="card-text">{weather.today.low}° Low</p>
-                  <p className="card-text">{weather.today.desc}</p>
+
+                  <h1 className="card-text">{weather.today.low}°/{weather.today.high}°</h1>
+                  <h5 className="card-text">{weather.today.desc}</h5>
+                  <div className="my-2">
+                    <h2 className="card-title">{weather.today.day}</h2>
+                  </div>
                 </div>
               </div>
             </div>
@@ -70,13 +72,16 @@ const Weather = ({ address }) => {
                 <img
                   src={weather.tomorrow.image}
                   alt={weather.tomorrow.desc}
-                  className="card-img-top mt-2 small-image"
+                  className="card-img-top mt-2 small-image mx-auto"
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{weather.tomorrow.day}</h5>
-                  <p className="card-text">{weather.tomorrow.high}° High</p>
-                  <p className="card-text">{weather.tomorrow.low}° Low</p>
-                  <p className="card-text">{weather.tomorrow.desc}</p>
+                  
+                  <h1 className="card-text">{weather.tomorrow.low}°/{weather.tomorrow.high}°</h1>
+                  <h5 className="card-text">{weather.tomorrow.desc}</h5>
+                  <div className="my-2">
+                    <h2 className="card-title">{weather.tomorrow.day}</h2>
+                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -85,13 +90,14 @@ const Weather = ({ address }) => {
                 <img
                   src={weather.overmorrow.image}
                   alt={weather.overmorrow.desc}
-                  className="card-img-top mt-2 small-image"
+                  className="card-img-top mt-2 small-image mx-auto"
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{weather.overmorrow.day}</h5>
-                  <p className="card-text">{weather.overmorrow.high}° High</p>
-                  <p className="card-text">{weather.overmorrow.low}° Low</p>
-                  <p className="card-text">{weather.overmorrow.desc}</p>
+                  <h1 className="card-text">{weather.overmorrow.low}°/{weather.tomorrow.high}°</h1>
+                  <h5 className="card-text">{weather.overmorrow.desc}</h5>
+                  <div className="my-2">
+                    <h2 className="card-title">{weather.overmorrow.day}</h2>
+                  </div>
                 </div>
               </div>
             </div>
