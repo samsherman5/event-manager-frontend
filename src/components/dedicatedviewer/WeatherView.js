@@ -62,7 +62,7 @@ const Weather = ({ address }) => {
                   <h1 className="card-title">{weather.today.low}°/{weather.today.high}°</h1>
                   <h5 className="card-title">{weather.today.desc}</h5>
                   <div className="my-3">
-                    <h2 className="card-title">{weather.today.day}</h2>
+                    <h1 className="card-title">{weather.today.day}</h1>
                   </div>
                 </div>
               </div>
@@ -79,7 +79,7 @@ const Weather = ({ address }) => {
                   <h1 className="card-title">{weather.tomorrow.low}°/{weather.tomorrow.high}°</h1>
                   <h5 className="card-title">{weather.tomorrow.desc}</h5>
                   <div className="my-3">
-                    <h2 className="card-title">{weather.tomorrow.day}</h2>
+                    <h1 className="card-title">{weather.tomorrow.day}</h1>
                   </div>
                   
                 </div>
@@ -96,7 +96,7 @@ const Weather = ({ address }) => {
                   <h1 className="card-title">{weather.overmorrow.low}°/{weather.tomorrow.high}°</h1>
                   <h5 className="card-title">{weather.overmorrow.desc}</h5>
                   <div className="my-3">
-                    <h2 className="card-title">{weather.overmorrow.day}</h2>
+                    <h1 className="card-title">{weather.overmorrow.day}</h1>
                   </div>
                 </div>
               </div>
