@@ -26,6 +26,7 @@ html body {
 
 .card-title {
   font-weight: 700;
+  margin: auto;
 }
 
 .btn-bluish {
@@ -289,7 +290,7 @@ Weather
 */
 
 .small-image {
-  max-width: 60%;
+  max-width: 40%;
   margin-left: auto;
   margin-right: auto;
   height: auto;
