@@ -55,13 +55,13 @@ const Weather = ({ address }) => {
                 <img
                   src={weather.today.image}
                   alt={weather.today.desc}
-                  className="mt-5 card-img-top small-image mx-auto"
+                  className="card-img-top mt-5 small-image mx-auto"
                 />
-                <div className="card-body">
+                <div className="card-body p-5">
 
                   <h1 className="card-title">{weather.today.low}°/{weather.today.high}°</h1>
                   <h5 className="card-title">{weather.today.desc}</h5>
-                  <div className="my-5 p-5">
+                  <div className="my-5">
                     <h2 className="card-title">{weather.today.day}</h2>
                   </div>
                 </div>
@@ -72,13 +72,13 @@ const Weather = ({ address }) => {
                 <img
                   src={weather.tomorrow.image}
                   alt={weather.tomorrow.desc}
-                  className="card-img-top mt-2 small-image mx-auto"
+                  className="card-img-top mt-5 small-image mx-auto"
                 />
-                <div className="card-body">
+                <div className="card-body p-5">
                   
                   <h1 className="card-title">{weather.tomorrow.low}°/{weather.tomorrow.high}°</h1>
                   <h5 className="card-title">{weather.tomorrow.desc}</h5>
-                  <div className="my-5 p-5">
+                  <div className="my-5">
                     <h2 className="card-title">{weather.tomorrow.day}</h2>
                   </div>
                   
@@ -90,12 +90,12 @@ const Weather = ({ address }) => {
                 <img
                   src={weather.overmorrow.image}
                   alt={weather.overmorrow.desc}
-                  className="card-img-top mt-2 small-image mx-auto"
+                  className="card-img-top mt-5 small-image mx-auto"
                 />
-                <div className="card-body">
+                <div className="card-body p-5">
                   <h1 className="card-title">{weather.overmorrow.low}°/{weather.tomorrow.high}°</h1>
                   <h5 className="card-title">{weather.overmorrow.desc}</h5>
-                  <div className="my-5 p-5">
+                  <div className="my-5">
                     <h2 className="card-title">{weather.overmorrow.day}</h2>
                   </div>
                 </div>
