@@ -4,7 +4,7 @@ import ViewerColumn from './ViewerColumn';
 const ColumnViewer = ({events}) => {
     return (
       <div>
-        <div className="mt-3 d-flex flex-column flex-md-row gap-4 align-items-center justify-content-center">
+        <div className="mt-5 d-flex flex-column flex-md-row gap-4 align-items-center justify-content-center">
           <div className="list-group">
                 {events.map((column, index) => {
                     return (
