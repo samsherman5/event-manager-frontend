@@ -29,7 +29,7 @@ const ViewerColumn = ({ organizers, tagline, time, _id, title }) => {
       id={_id}
       className={`${
         isActivated ? "column-activated" : ""
-      } list-group-item shadow border-0 d-flex gap-2 p-2 st-backgroundblue`}
+      } py-2 list-group-item shadow border-0 d-flex gap-2 p-2 st-backgroundblue`}
       aria-current="true"
     >
       <div className="d-flex gap-2 w-100 justify-content-between">
