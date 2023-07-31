@@ -1,10 +1,10 @@
 {
     "Sunday":null,
     "Monday": "https://i.ibb.co/Yby9hHd/Hawaii-Night.jpg",
-    "Tuesday": "https://ibb.co/9qVZXs5",
+    "Tuesday": "https://i.ibb.co/2jsZ2g4/pride-gradient-1.jpg",
     "Wednesday":"https://i.ibb.co/xLG9DYd/Wacky-2.jpg",
-    "Thursday":"https://ibb.co/MPJN4FY",
-    "Friday":"https://ibb.co/9qVZXs5",
+    "Thursday":"https://i.ibb.co/Bz8wWTv/Gray-Stars.webp",
+    "Friday":"https://i.ibb.co/2jsZ2g4/pride-gradient-1.jpg",
     "//IMPORTANT_INFO": [
         "The image url must be an image url, it has to end in .png, .jpeg, etc",
         "bad: https://ibb.co/4J50dn2",
@@ -18,7 +18,7 @@
         "Gray - https://i.ibb.co/Bz8wWTv/Gray-Stars.webp",
         "Superhero - https://ibb.co/MPJN4FY",
         "https://ibb.co/4T4K44y https://ibb.co/YQ8n3Xw https://ibb.co/J3TKC6S",
-        "Rainbow - https://ibb.co/9qVZXs5"
+        "Rainbow - https://i.ibb.co/2jsZ2g4/pride-gradient-1.jpg"
         
 
     ]
