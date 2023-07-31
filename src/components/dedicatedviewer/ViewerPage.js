@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import ColumnView from "./ColumnView";
 import WeatherView from "./WeatherView";
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 import config from "../../config/viewer_config.json";
 
 const ViewerPage = ({ day, setDay, address }) => {
-  const MemoizedColumnView = React.memo(ColumnView);
-  const MemoizedWeatherView = React.memo(WeatherView);
+  const MemoizedColumnView = memo(ColumnView);
+  const MemoizedWeatherView = memo(WeatherView);
 
   const [currentComponent, setCurrentComponent] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
