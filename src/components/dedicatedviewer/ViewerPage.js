@@ -5,11 +5,16 @@ import { useEffect, useState } from "react";
 import config from "../../config/viewer_config.json";
 
 const ViewerPage = ({ day, setDay, address }) => {
+  const MemoizedColumnView = React.memo(ColumnView);
+  const MemoizedWeatherView = React.memo(WeatherView);
+
   const [currentComponent, setCurrentComponent] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [pages, setPages] = useState([
-    { component: <WeatherView address={address} />, time: config.weatherTime },
+    { component: <MemoizedWeatherView address={address} />, time: config.weatherTime },
   ]);
+
+  
 
   useEffect(() => {
     if (pages.length > 0) {
@@ -50,7 +55,7 @@ const ViewerPage = ({ day, setDay, address }) => {
                     ...pages,
                     ...groupedEvents.map((group, index) => {
                       return {
-                        component: <ColumnView key={index} events={group} />,
+                        component: <MemoizedColumnView key={index} events={group} />,
                         time: config.eventsTime,
                       };
                     }),
